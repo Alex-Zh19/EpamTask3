@@ -3,7 +3,6 @@ package com.epam.task3.parser;
 import com.epam.task3.exception.CubeException;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class CustomParser {
@@ -22,16 +21,16 @@ public class CustomParser {
         return names;
     }
 
-    public List<int[]> parseStringsToGetIntArray(List<String> validStrings) throws CubeException {
+    public List<double[]> parseStringsToGetIntArray(List<String> validStrings) throws CubeException {
         if (validStrings == null) {
             throw new CubeException("Valid strings list is null");
         }
-        List<int[]> values = new ArrayList<>();
+        List<double[]> values = new ArrayList<>();
 
         for (String string : validStrings) {
             String valueForCenter = string.substring(string.indexOf('(') + 1, string.indexOf(')'));
-            int[] arrayForCenterPoint = createArrayForPoint(valueForCenter);
-            int sideLength = findSideLengthInString(string);
+            double[] arrayForCenterPoint = createArrayForPoint(valueForCenter);
+            double sideLength = findSideLengthInString(string);
             arrayForCenterPoint[arrayForCenterPoint.length - 1] = sideLength;
             values.add(arrayForCenterPoint);
         }
@@ -39,16 +38,16 @@ public class CustomParser {
     }
 
 
-    private int[] createArrayForPoint(String valueForCenter) {
+    private double[] createArrayForPoint(String valueForCenter) {
         String[] stringNumeralsForPoint = valueForCenter.split(REG_TO_CREATE_ARRAY_FOR_POINT);
-        int[] numeralsForPoint = new int[4];
+        double[] numeralsForPoint = new double[4];
         for (int i = 0; i < 3; i++) {
-            numeralsForPoint[i] = Integer.parseInt(stringNumeralsForPoint[i].trim());
+            numeralsForPoint[i] = Double.parseDouble(stringNumeralsForPoint[i].trim());
         }
         return numeralsForPoint;
     }
 
-    private int findSideLengthInString(String string) throws CubeException {
+    private double findSideLengthInString(String string) throws CubeException {
         String lastSymbolsWithSideLength = string.substring(string.indexOf(')') + 1);
         int positionOfFirstSymbolOfRadius = 0;
         for (int i = lastSymbolsWithSideLength.length() - 1; i >= 0; i--) {

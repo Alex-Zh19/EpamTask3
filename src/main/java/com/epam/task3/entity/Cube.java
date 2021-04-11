@@ -3,7 +3,7 @@ package com.epam.task3.entity;
 public class Cube {
     private int id;
     private String name;
-    private int sideLength;
+    private double sideLength;
     private CustomPoint centerPoint;
 
 
@@ -32,11 +32,11 @@ public class Cube {
         return name;
     }
 
-    public int getSideLength() {
+    public double getSideLength() {
         return sideLength;
     }
 
-    public void setSideLength(int sideLength) {
+    public void setSideLength(double sideLength) {
         this.sideLength = sideLength;
     }
 
@@ -59,7 +59,7 @@ public class Cube {
     @Override
     public int hashCode() {
         int result = 9;
-        Integer sideLen = sideLength;
+        Double sideLen = sideLength;
         result += centerPoint.hashCode() + sideLen.hashCode();
         return result;
     }

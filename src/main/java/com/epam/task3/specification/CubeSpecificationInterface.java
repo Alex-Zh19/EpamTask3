@@ -1,7 +1,9 @@
 package com.epam.task3.specification;
 
 import com.epam.task3.entity.Cube;
+import com.epam.task3.exception.CubeException;
+import com.epam.task3.exception.CustomPointException;
 
 public interface CubeSpecificationInterface {
-    boolean specified(Cube cube);
+    boolean specified(Cube cube) throws CustomPointException, CubeException;
 }

@@ -10,7 +10,7 @@ import java.util.List;
 public class CubeFactory {
     private int id = 0;
 
-    public Cube createCube(String name, int sideLength, int x, int y, int z) throws CubeException {
+    public Cube createCube(String name, int sideLength, double x, double y, double z) throws CubeException {
         if (name == null) {
             name = "untitled";
         }
@@ -35,7 +35,7 @@ public class CubeFactory {
         return newCube;
     }
 
-    public List<Cube> createCube(List<String> nameList, List<int[]> parametersList) throws CubeException {
+    public List<Cube> createCube(List<String> nameList, List<double[]> parametersList) throws CubeException {
         List<Cube> cubeList = new ArrayList<>();
         if (nameList == null) {
             throw new CubeException("nameList cannot be null");
@@ -54,8 +54,8 @@ public class CubeFactory {
         }
         for (int i = 0; i < nameList.size(); i++) {
             String name = nameList.get(i);
-            int[] parameters = parametersList.get(i);
-            int sideLen = parameters[parameters.length - 1];
+            double[] parameters = parametersList.get(i);
+            int sideLen =(int) parameters[parameters.length - 1];
             CustomPoint centerPoint = createPoint(parameters[0], parameters[1], parameters[2]);
             Cube newCube = new Cube(id, name, sideLen, centerPoint);
             id++;
@@ -65,7 +65,7 @@ public class CubeFactory {
     }
 
 
-    private CustomPoint createPoint(int x, int y, int z) {
+    private CustomPoint createPoint(double x, double y, double z) {
         return new CustomPoint(x, y, z);
     }
 }

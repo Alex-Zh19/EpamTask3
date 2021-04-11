@@ -1,15 +1,15 @@
 package com.epam.task3.entity;
 
 public class CustomPoint {
-    private int x, y, z;
+    private double x, y, z;
 
-    public CustomPoint(int x, int y, int z) {
+    public CustomPoint(double x, double y, double z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
@@ -17,7 +17,7 @@ public class CustomPoint {
         this.x = x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
@@ -25,7 +25,7 @@ public class CustomPoint {
         this.y = y;
     }
 
-    public int getZ() {
+    public double getZ() {
         return z;
     }
 
@@ -44,18 +44,18 @@ public class CustomPoint {
     @Override
     public int hashCode() {
         int result = 9;
-        Integer x = this.x;
-        Integer y = this.y;
-        Integer z = this.z;
+        Double x = this.x;
+        Double y = this.y;
+        Double z = this.z;
         result += x.hashCode() + y.hashCode() + z.hashCode();
         return result;
     }
 
     @Override
     public String toString() {
-        Integer x = this.x;
-        Integer y = this.y;
-        Integer z = this.z;
+        Double x = this.x;
+        Double y = this.y;
+        Double z = this.z;
         return "Point (" +
                 x.toString() + ";" +
                 y.toString() + ";" +
