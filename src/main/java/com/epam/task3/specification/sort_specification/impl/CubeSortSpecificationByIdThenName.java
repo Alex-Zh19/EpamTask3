@@ -10,7 +10,7 @@ import java.util.Comparator;
 public class CubeSortSpecificationByIdThenName implements CubeSortSpecificationInterface {
     @Override
     public int compare(Cube o1, Cube o2) {
-        Comparator.comparing(Cube::getId).thenComparing(Cube::getName)
+        Comparator.comparing(Cube::getId).thenComparing(Cube::getName);
         return
     }
 
