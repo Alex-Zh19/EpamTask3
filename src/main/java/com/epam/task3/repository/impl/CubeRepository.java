@@ -2,11 +2,15 @@ package com.epam.task3.repository.impl;
 
 import com.epam.task3.entity.Cube;
 import com.epam.task3.repository.CubeRepositoryInterface;
-import com.epam.task3.specification.CubeSpecificationInterface;
-import com.epam.task3.specification.impl.CubeSpecificationById;
+import com.epam.task3.specification.find_specification.CubeFindSpecificationInterface;
+import com.epam.task3.specification.sort_specification.CubeSortSpecificationInterface;
 
 import java.util.ArrayList;
+
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CubeRepository implements CubeRepositoryInterface {
 
@@ -25,31 +29,56 @@ public class CubeRepository implements CubeRepositoryInterface {
     }
 
     @Override
-    public void addCube(Cube cube) {
-        cubeList.add(cube);
+    public boolean addCube(Cube cube) {
+        return cubeList.add(cube);
     }
 
     @Override
-    public void addCube(List<Cube> listOfCube) {
-        cubeList.addAll(listOfCube);
+    public boolean addCube(List<Cube> listOfCube) {
+
+        return cubeList.addAll(listOfCube);
     }
 
     @Override
-    public void removeCube(Cube cube) {
-        cubeList.remove(cube);
+    public boolean removeCube(Cube cube) {
+        return cubeList.remove(cube);
     }
 
     @Override
-    public void updateCube(int position, Cube cube) {
+    public boolean removeAllCube(List<Cube> listOfCube) {
+        return cubeList.removeAll(listOfCube);
+    }
+
+    @Override
+    public boolean updateCube(int position, Cube cube) {
         if (position >= 0 && position < cubeList.size()) {
             cubeList.add(position, cube);
+            return true;
         }
+        return false;
     }
 
     @Override
-    public List query(CubeSpecificationInterface cubeSpecification) {
-        List<Cube> specifiedCubeList = new ArrayList<>();
+    public void sorting(CubeSortSpecificationInterface cubeSortSpecification) {
+        Collections.sort(cubeList,cubeSortSpecification);
+    }
 
-        return null;
+
+    @Override
+    public List queryStream(CubeFindSpecificationInterface cubeSpecification) {
+        List<Cube> specifiedCubeList = cubeList.stream().filter(cube -> cubeSpecification.specified(cube)).
+                collect(Collectors.toList());
+        return specifiedCubeList;
+    }
+
+    @Override
+    public List query(CubeFindSpecificationInterface cubeSpecification) {
+        List<Cube> specifiedCubeList = new ArrayList<>();
+        for (Cube currentCubeIntList : cubeList) {
+            if (cubeSpecification.specified(currentCubeIntList)) {
+                specifiedCubeList.add(currentCubeIntList);
+            }
+        }
+        return specifiedCubeList;
     }
 }

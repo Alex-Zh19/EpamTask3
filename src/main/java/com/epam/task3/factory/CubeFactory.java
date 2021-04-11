@@ -15,7 +15,7 @@ public class CubeFactory {
             name = "untitled";
         }
         if (sideLength <= 0) {
-            throw new CubeException("Cube cannot exist");
+            throw new CubeException("wrong data input. side length cannot be less than 0 :" + sideLength);
         }
         CustomPoint centerPoint = createPoint(x, y, z);
         Cube newCube = new Cube(id, name, sideLength, centerPoint);
@@ -28,7 +28,7 @@ public class CubeFactory {
             name = "untitled";
         }
         if (sideLength <= 0) {
-            throw new CubeException("Cube cannot exist");
+            throw new CubeException("wrong data input. side length cannot be less than 0 :" + sideLength);
         }
         Cube newCube = new Cube(id, name, sideLength, centerPoint);
         id++;
@@ -55,7 +55,10 @@ public class CubeFactory {
         for (int i = 0; i < nameList.size(); i++) {
             String name = nameList.get(i);
             double[] parameters = parametersList.get(i);
-            int sideLen =(int) parameters[parameters.length - 1];
+            int sideLen = (int) parameters[parameters.length - 1];
+            if (sideLen <= 0) {
+                throw new CubeException("wrong data input. side length cannot be less than 0 :" + sideLen);
+            }
             CustomPoint centerPoint = createPoint(parameters[0], parameters[1], parameters[2]);
             Cube newCube = new Cube(id, name, sideLen, centerPoint);
             id++;

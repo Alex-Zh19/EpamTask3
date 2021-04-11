@@ -1,23 +1,23 @@
-package com.epam.task3.specification.impl;
+package com.epam.task3.specification.find_specification.impl;
 
 import com.epam.task3.action.point_action.FindVertexPoint;
 import com.epam.task3.entity.Cube;
 import com.epam.task3.entity.CustomPoint;
 import com.epam.task3.exception.CustomPointException;
-import com.epam.task3.specification.CubeSpecificationInterface;
+import com.epam.task3.specification.find_specification.CubeFindSpecificationInterface;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CubeSpecificationByDistance implements CubeSpecificationInterface {//from point (0,0,0)
+public class CubeFindSpecificationByDistance implements CubeFindSpecificationInterface {//from point (0,0,0)
     double desiredDistance;
 
-    public CubeSpecificationByDistance(double desiredDistance) {
+    public CubeFindSpecificationByDistance(double desiredDistance) {
         this.desiredDistance = desiredDistance;
     }
 
     @Override
-    public boolean specified(Cube cube) throws CustomPointException {
+    public boolean specified(Cube cube) {
         CustomPoint centerPointOfCube = cube.getCenterPoint();
         FindVertexPoint findVertexPoint = new FindVertexPoint();
         double halfOfSideLength = cube.getSideLength() / 2;
