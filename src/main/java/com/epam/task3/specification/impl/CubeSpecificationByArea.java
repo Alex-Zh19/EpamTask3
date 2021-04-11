@@ -6,12 +6,13 @@ import com.epam.task3.specification.CubeSpecificationInterface;
 public class CubeSpecificationByArea implements CubeSpecificationInterface {
     private int desiredArea;
 
-    public CubeSpecificationByArea(int desiredArea){
-        this.desiredArea=desiredArea;
+    public CubeSpecificationByArea(int desiredArea) {
+        this.desiredArea = desiredArea;
     }
+
     @Override
     public boolean specified(Cube cube) {
-        int cubeArea=cube.getSideLength() * cube.getSideLength() * 6;
-        return cubeArea==desiredArea;
+        double cubeArea = cube.getSideLength() * cube.getSideLength() * 6;
+        return cubeArea == desiredArea;
     }
 }

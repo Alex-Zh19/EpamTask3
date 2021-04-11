@@ -6,16 +6,17 @@ import com.epam.task3.specification.CubeSpecificationInterface;
 public class CubeSpecificationByVolume implements CubeSpecificationInterface {
     private int desiredVolumeMin;
     private int desiredVolumeMax;
-    public CubeSpecificationByVolume(int desiredVolumeMin,int desiredVolumeMax){
-        this.desiredVolumeMin=desiredVolumeMin;
-        this.desiredVolumeMax=desiredVolumeMax;
+
+    public CubeSpecificationByVolume(int desiredVolumeMin, int desiredVolumeMax) {
+        this.desiredVolumeMin = desiredVolumeMin;
+        this.desiredVolumeMax = desiredVolumeMax;
     }
 
     @Override
     public boolean specified(Cube cube) {
-        int volume = cube.getSideLength() *
+        double volume = cube.getSideLength() *
                 cube.getSideLength() *
                 cube.getSideLength();
-        return (volume>=desiredVolumeMin)&&(volume<=desiredVolumeMax);
+        return (volume >= desiredVolumeMin) && (volume <= desiredVolumeMax);
     }
 }

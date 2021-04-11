@@ -21,7 +21,7 @@ public class CubeSpecificationByDistance implements CubeSpecificationInterface {
         CustomPoint centerPointOfCube = cube.getCenterPoint();
         FindVertexPoint findVertexPoint = new FindVertexPoint();
         double halfOfSideLength = cube.getSideLength() / 2;
-        List<CustomPoint>vertexPointList=new ArrayList<>();
+        List<CustomPoint> vertexPointList = new ArrayList<>();
         CustomPoint pointOfCube1 = findVertexPoint.findAnotherPoint(centerPointOfCube, halfOfSideLength,
                 -1, -1, -1);
         vertexPointList.add(pointOfCube1);
@@ -54,8 +54,8 @@ public class CubeSpecificationByDistance implements CubeSpecificationInterface {
                 1, 1, 1);
         vertexPointList.add(pointOfCube8);
 
-        for(CustomPoint currentVertexPoint:vertexPointList){
-            if(isPointAtSuchDistance(currentVertexPoint)) return true;
+        for (CustomPoint currentVertexPoint : vertexPointList) {
+            if (isPointAtSuchDistance(currentVertexPoint)) return true;
         }
         return false;
     }
