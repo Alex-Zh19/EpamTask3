@@ -1,4 +1,4 @@
-package com.epam.task3.creator;
+package com.epam.task3.factory;
 
 import com.epam.task3.entity.Cube;
 import com.epam.task3.entity.CustomPoint;
@@ -7,14 +7,10 @@ import com.epam.task3.exception.CubeException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CubeCreator {
-    List<Cube> cubeList;
+public class CubeFactory {
+    private int id = 0;
 
-    public CubeCreator() {
-        cubeList = new ArrayList<>();
-    }
-
-    public void createCube(String name, int sideLength, int x, int y, int z) throws CubeException {
+    public Cube createCube(String name, int sideLength, int x, int y, int z) throws CubeException {
         if (name == null) {
             name = "untitled";
         }
@@ -22,22 +18,25 @@ public class CubeCreator {
             throw new CubeException("Cube cannot exist");
         }
         CustomPoint centerPoint = createPoint(x, y, z);
-        Cube newCube = new Cube(cubeList.size(), name, sideLength, centerPoint);
-        cubeList.add(newCube);
+        Cube newCube = new Cube(id, name, sideLength, centerPoint);
+        id++;
+        return newCube;
     }
 
-    public void createCube(String name, int sideLength, CustomPoint centerPoint) throws CubeException {
+    public Cube createCube(String name, int sideLength, CustomPoint centerPoint) throws CubeException {
         if (name == null) {
             name = "untitled";
         }
         if (sideLength <= 0) {
             throw new CubeException("Cube cannot exist");
         }
-        Cube newCube = new Cube(cubeList.size(), name, sideLength, centerPoint);
-        cubeList.add(newCube);
+        Cube newCube = new Cube(id, name, sideLength, centerPoint);
+        id++;
+        return newCube;
     }
 
-    public void createCube(List<String> nameList, List<int[]> parametersList) throws CubeException {
+    public List<Cube> createCube(List<String> nameList, List<int[]> parametersList) throws CubeException {
+        List<Cube> cubeList = new ArrayList<>();
         if (nameList == null) {
             throw new CubeException("nameList cannot be null");
         }
@@ -54,17 +53,15 @@ public class CubeCreator {
             throw new CubeException("part of input data wrong");
         }
         for (int i = 0; i < nameList.size(); i++) {
-            String name= nameList.get(i);
-            int []parameters= parametersList.get(i);
-            int sideLen=parameters[parameters.length-1];
-            CustomPoint centerPoint=createPoint(parameters[0],parameters[1],parameters[2]);
-            Cube newCube=new Cube(cubeList.size(),name,sideLen,centerPoint);
+            String name = nameList.get(i);
+            int[] parameters = parametersList.get(i);
+            int sideLen = parameters[parameters.length - 1];
+            CustomPoint centerPoint = createPoint(parameters[0], parameters[1], parameters[2]);
+            Cube newCube = new Cube(id, name, sideLen, centerPoint);
+            id++;
             cubeList.add(newCube);
         }
-
-    }
-    public List<Cube> getCubeList(){
-        return new ArrayList<>(cubeList);
+        return cubeList;
     }
 
 
