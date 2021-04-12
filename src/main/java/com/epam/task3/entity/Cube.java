@@ -8,12 +8,12 @@ import com.epam.task3.observer.Observer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cube implements  Observable {
+public class Cube implements Observable {
     private String id;
     private String name;
     private double sideLength;
     private CustomPoint centerPoint;
-    private List<Observer> observers=new ArrayList<>();
+    private List<Observer> observers = new ArrayList<>();
 
 
     private Cube(String id) {
@@ -27,7 +27,7 @@ public class Cube implements  Observable {
     }
 
     public Cube(String id, String name, double sideLength, CustomPoint centerPoint) throws CubeException {
-        if(sideLength<=0){
+        if (sideLength <= 0) {
             throw new CubeException("wrong data input. side length cannot be less than 0 :" + sideLength);
         }
         this.id = id;
@@ -49,11 +49,11 @@ public class Cube implements  Observable {
     }
 
     public void setSideLength(double sideLength) throws CubeException {
-        if(sideLength<=0){
-        throw new CubeException("wrong data input. side length cannot be less than 0 :" + sideLength);
+        if (sideLength <= 0) {
+            throw new CubeException("wrong data input. side length cannot be less than 0 :" + sideLength);
         }
         this.sideLength = sideLength;
-
+        notifyObservers();
     }
 
     public CustomPoint getCenterPoint() {
@@ -62,6 +62,7 @@ public class Cube implements  Observable {
 
     public void setCenterPoint(CustomPoint centerPoint) {
         this.centerPoint = centerPoint;
+        notifyObservers();
     }
 
     @Override
@@ -82,15 +83,15 @@ public class Cube implements  Observable {
 
     @Override
     public String toString() {
-        return "Cube{" +
-                "sideLength=" + sideLength +
-                ", centerPoint=" + centerPoint +
-                '}';
+        StringBuilder result=new StringBuilder("Cube{ sideLength= ");
+        result.append(sideLength);
+        result.append(", centerPoint= ").append(centerPoint).append("}");
+        return result.toString();
     }
 
     @Override
     public void attach(Observer observer) {
-        if(observer!=null){
+        if (observer != null) {
             observers.add(observer);
         }
     }
@@ -102,9 +103,11 @@ public class Cube implements  Observable {
 
     @Override
     public void notifyObservers() {
-        CubeEvent cubeEvent=new CubeEvent(this);
-        for(Observer observer:observers){
-            observer.parameterChanged(cubeEvent);
+        if (!observers.isEmpty()) {
+            CubeEvent cubeEvent = new CubeEvent(this);
+            for (Observer observer : observers) {
+                observer.parameterChanged(cubeEvent);
+            }
         }
     }
 }

@@ -62,10 +62,8 @@ public class CubeParameter {
 
     @Override
     public String toString() {
-        return "CubeParameter{" +
-                "perimeter=" + perimeter +
-                ", volume=" + volume +
-                ", area=" + area +
-                '}';
+        StringBuilder result=new StringBuilder("CubeParameter{ perimeter= ").append(perimeter).
+                append(", volume= ").append(volume).append(", area= ").append(area).append("}");
+        return result.toString();
     }
 }

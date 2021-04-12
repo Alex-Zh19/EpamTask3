@@ -56,9 +56,13 @@ public class CustomPoint {
         Double x = this.x;
         Double y = this.y;
         Double z = this.z;
-        return "Point (" +
-                x.toString() + ";" +
-                y.toString() + ";" +
-                z.toString() + ")";
+        StringBuilder result = new StringBuilder("Point (");
+        result.append(x);
+        result.append(";");
+        result.append(y);
+        result.append(";");
+        result.append(z);
+        result.append(")");
+        return result.toString();
     }
 }
