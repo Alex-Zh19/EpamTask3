@@ -9,14 +9,19 @@ import java.util.List;
 
 public interface CubeRepositoryInterface {
     boolean addCube(Cube cube);
-    boolean addCube(List<Cube> cube);
-    boolean removeCube(Cube cube);
-    boolean removeAllCube(List<Cube> listOfCube);
-    boolean updateCube(int position,Cube cube);
 
-    void sorting(CubeSortSpecificationInterface cubeSortSpecification) ;
+    boolean addCube(List<Cube> cube);
+
+    boolean removeCube(Cube cube);
+
+    boolean removeAllCube(List<Cube> listOfCube);
+
+    boolean updateCube(int position, Cube cube);
+
+    void sorting(CubeSortSpecificationInterface cubeSortSpecification);
 
     List queryStream(CubeFindSpecificationInterface cubeFindSpecification);
+
     List query(CubeFindSpecificationInterface cubeFindSpecification);
 
 }

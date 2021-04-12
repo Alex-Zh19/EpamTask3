@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CubeFindSpecificationByCoordinates implements CubeFindSpecificationInterface {
     @Override
-    public boolean specified(Cube cube)  {//for 1st quarter and positive z
+    public boolean specified(Cube cube) {//for 1st quarter and positive z
         CustomPoint centerPointOfCube = cube.getCenterPoint();
 
         FindVertexPoint findVertexPoint = new FindVertexPoint();
@@ -34,8 +34,8 @@ public class CubeFindSpecificationByCoordinates implements CubeFindSpecification
                 1, 1, -1);
         vertexPointList.add(pointOfCube4);
 
-        for(CustomPoint currentPoint:vertexPointList){
-            if(!isFirstQuarter(currentPoint))return false;
+        for (CustomPoint currentPoint : vertexPointList) {
+            if (!isFirstQuarter(currentPoint)) return false;
         }
         return true;
     }

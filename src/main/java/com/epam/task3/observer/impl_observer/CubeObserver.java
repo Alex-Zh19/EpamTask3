@@ -23,26 +23,26 @@ public class CubeObserver implements Observer {
         try {
             perimeter = calculations.cubePerimeterCalculation(event.getSource());
         } catch (CubeException e) {
-            logger.log(Level.ERROR,e.getMessage());
+            logger.log(Level.ERROR, e.getMessage());
         }
 
         try {
             volume = calculations.cubeVolumeCalculation(event.getSource());
         } catch (CubeException e) {
-            logger.log(Level.ERROR,e.getMessage());
+            logger.log(Level.ERROR, e.getMessage());
         }
 
         try {
             area = calculations.cubeAreaCalculation(event.getSource());
         } catch (CubeException e) {
-            logger.log(Level.ERROR,e.getMessage());
+            logger.log(Level.ERROR, e.getMessage());
         }
-        String id=event.getSource().getId();
+        String id = event.getSource().getId();
 
         try {
-            Warehouse.getInstance().updateElement(id,volume,area,perimeter);
-        }catch (WarehouseException e){
-            logger.log(Level.ERROR,e.getMessage());
+            Warehouse.getInstance().updateElement(id, volume, area, perimeter);
+        } catch (WarehouseException e) {
+            logger.log(Level.ERROR, e.getMessage());
         }
 
     }

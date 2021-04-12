@@ -6,7 +6,7 @@ public class CubeParameter {
     private double volume;
     private double area;
 
-    public CubeParameter( double volume, double area,double perimeter) {
+    public CubeParameter(double volume, double area, double perimeter) {
         this.volume = volume;
         this.area = area;
         this.perimeter = perimeter;
@@ -56,13 +56,13 @@ public class CubeParameter {
         Double p = perimeter;
         Double v = volume;
         Double a = area;
-        int result =p.hashCode()+v.hashCode()+a.hashCode();
+        int result = p.hashCode() + v.hashCode() + a.hashCode();
         return result;
     }
 
     @Override
     public String toString() {
-        StringBuilder result=new StringBuilder("CubeParameter{ perimeter= ").append(perimeter).
+        StringBuilder result = new StringBuilder("CubeParameter{ perimeter= ").append(perimeter).
                 append(", volume= ").append(volume).append(", area= ").append(area).append("}");
         return result.toString();
     }

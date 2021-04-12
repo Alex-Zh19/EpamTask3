@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CubeFactory {
-    private int id = 0;
+    private static int id = 0;
     private final String CUBE_SHAPE = "cube";
 
     public Cube createShape(String type, String name, int sideLength, double x, double y, double z) throws CubeException {
@@ -21,7 +21,7 @@ public class CubeFactory {
         if (name == null) {
             name = "unnamed";
         }
-        CustomPoint centerPoint=createPoint(x,y,z);
+        CustomPoint centerPoint = createPoint(x, y, z);
         switch (type.toLowerCase()) {
             case CUBE_SHAPE://create cube
                 Cube newCube = createCube(type, name, sideLength, centerPoint);

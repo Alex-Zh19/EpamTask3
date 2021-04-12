@@ -6,8 +6,8 @@ import com.epam.task3.specification.find_specification.CubeFindSpecificationInte
 public class CubeFindSpecificationById implements CubeFindSpecificationInterface {
     private String desiredId;
 
-    public CubeFindSpecificationById(String desiredId){
-        this.desiredId=desiredId;
+    public CubeFindSpecificationById(String desiredId) {
+        this.desiredId = desiredId;
     }
 
     @Override

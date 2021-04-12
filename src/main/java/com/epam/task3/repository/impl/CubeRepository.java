@@ -59,7 +59,7 @@ public class CubeRepository implements CubeRepositoryInterface {
 
     @Override
     public void sorting(CubeSortSpecificationInterface cubeSortSpecification) {
-        Collections.sort(cubeList,cubeSortSpecification);
+        Collections.sort(cubeList, cubeSortSpecification);
     }
 
 
