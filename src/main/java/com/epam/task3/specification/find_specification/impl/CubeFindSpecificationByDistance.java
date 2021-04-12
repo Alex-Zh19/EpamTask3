@@ -3,7 +3,6 @@ package com.epam.task3.specification.find_specification.impl;
 import com.epam.task3.action.point_action.FindVertexPoint;
 import com.epam.task3.entity.Cube;
 import com.epam.task3.entity.CustomPoint;
-import com.epam.task3.exception.CustomPointException;
 import com.epam.task3.specification.find_specification.CubeFindSpecificationInterface;
 
 import java.util.ArrayList;

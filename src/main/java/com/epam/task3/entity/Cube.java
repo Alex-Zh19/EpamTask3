@@ -1,12 +1,19 @@
 package com.epam.task3.entity;
 
 import com.epam.task3.exception.CubeException;
+import com.epam.task3.observer.CubeEvent;
+import com.epam.task3.observer.Observable;
+import com.epam.task3.observer.Observer;
 
-public class Cube implements Shape{
+import java.util.ArrayList;
+import java.util.List;
+
+public class Cube implements Shape, Observable {
     private String id;
     private String name;
     private double sideLength;
     private CustomPoint centerPoint;
+    private List<Observer> observers=new ArrayList<>();
 
 
     private Cube(String id) {
@@ -79,5 +86,25 @@ public class Cube implements Shape{
                 "sideLength=" + sideLength +
                 ", centerPoint=" + centerPoint +
                 '}';
+    }
+
+    @Override
+    public void attach(Observer observer) {
+        if(observer!=null){
+            observers.add(observer);
+        }
+    }
+
+    @Override
+    public void detach(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        CubeEvent cubeEvent=new CubeEvent(this);
+        for(Observer observer:observers){
+            observer.parameterChanged(cubeEvent);
+        }
     }
 }

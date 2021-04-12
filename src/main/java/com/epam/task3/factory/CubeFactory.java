@@ -22,7 +22,7 @@ public class CubeFactory {
         if (name == null) {
             name = "unnamed";
         }
-        switch (type) {
+        switch (type.toLowerCase()) {
             case CUBE_SHAPE://create cube
                 Shape newCube = createCube(type, name, sideLength, centerPoint);
                 return newCube;
@@ -54,7 +54,7 @@ public class CubeFactory {
             double[] dataParameter = parametersList.get(i);
             String type = dataTypeAndName[0];
             String name = dataTypeAndName[1];
-            switch (type) {
+            switch (type.toLowerCase()) {
                 case CUBE_SHAPE://create cube
                     CustomPoint centerPoint = createPoint(dataParameter[0], dataParameter[1], dataParameter[2]);
                     double sideLength = dataParameter[dataParameter.length - 1];

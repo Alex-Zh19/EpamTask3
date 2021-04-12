@@ -14,14 +14,14 @@ public class CustomParser {
         }
         StringBuilder validString;
         List<String[]> typesAndNames = new ArrayList<>();
-        String[]data=new String[2];
+        String[] data = new String[2];
         for (String string : validStrings) {
-            validString=new StringBuilder(string);
-            String shapeType = validString.substring(0, validString.indexOf(":"));
-            data[0]=shapeType.trim();
-            validString = validString.replace(0, validString.indexOf(":")+1, "");
-            String name=validString.substring(0, validString.indexOf(":"));
-            data[1]=name.trim();
+            validString = new StringBuilder(string);
+            String shapeType = validString.substring(0, validString.indexOf(":")).trim();
+            data[0] = shapeType;
+            validString = validString.replace(0, validString.indexOf(":") + 1, "");
+            String name = validString.substring(0, validString.indexOf(":")).trim();
+            data[1] = name;
             typesAndNames.add(data);
         }
         return typesAndNames;

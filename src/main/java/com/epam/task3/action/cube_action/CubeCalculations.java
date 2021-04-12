@@ -3,7 +3,7 @@ package com.epam.task3.action.cube_action;
 import com.epam.task3.entity.Cube;
 import com.epam.task3.exception.CubeException;
 
-public class Calculations {
+public class CubeCalculations {
 
     public double cubeAreaCalculation(Cube cube) throws CubeException {
         if (cube == null) {

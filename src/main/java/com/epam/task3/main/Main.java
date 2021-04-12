@@ -9,6 +9,9 @@ public class Main {
         String string = " cube:   name   :   (43 ;45,  56),    1122    ";
         StringBuilder validString = new StringBuilder(string);
         String shapeType = validString.substring(0, validString.indexOf(":"));
+        StringBuilder id=new StringBuilder(shapeType);
+        id.append(5);
+        System.out.println(id);
         validString = validString.replace(0, validString.indexOf(":")+1, "");
         String name = validString.substring(0, validString.indexOf(":"));
 
