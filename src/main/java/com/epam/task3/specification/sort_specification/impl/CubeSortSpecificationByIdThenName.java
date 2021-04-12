@@ -11,7 +11,7 @@ public class CubeSortSpecificationByIdThenName implements CubeSortSpecificationI
     @Override
     public int compare(Cube o1, Cube o2) {
         Comparator.comparing(Cube::getId).thenComparing(Cube::getName);
-        return
+        return 0;
     }
 
 }

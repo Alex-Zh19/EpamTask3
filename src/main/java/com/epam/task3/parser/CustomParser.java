@@ -8,17 +8,23 @@ import java.util.List;
 public class CustomParser {
     private final String REG_TO_CREATE_ARRAY_FOR_POINT = "[,]|[;]";
 
-    public List<String> parseStringsToGetNames(List<String> validStrings) throws CubeException {
+    public List<String[]> parseStringsToGetNames(List<String> validStrings) throws CubeException {
         if (validStrings == null) {
             throw new CubeException("Valid strings list is null");
         }
-        List<String> names = new ArrayList<>();
+        StringBuilder validString;
+        List<String[]> typesAndNames = new ArrayList<>();
+        String[]data=new String[2];
         for (String string : validStrings) {
-            String name = string.substring(0, string.indexOf(':'));
-            names.add(name.trim());
-
+            validString=new StringBuilder(string);
+            String shapeType = validString.substring(0, validString.indexOf(":"));
+            data[0]=shapeType.trim();
+            validString = validString.replace(0, validString.indexOf(":")+1, "");
+            String name=validString.substring(0, validString.indexOf(":"));
+            data[1]=name.trim();
+            typesAndNames.add(data);
         }
-        return names;
+        return typesAndNames;
     }
 
     public List<double[]> parseStringsToGetIntArray(List<String> validStrings) throws CubeException {

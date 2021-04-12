@@ -4,14 +4,14 @@ import com.epam.task3.entity.Cube;
 import com.epam.task3.specification.find_specification.CubeFindSpecificationInterface;
 
 public class CubeFindSpecificationById implements CubeFindSpecificationInterface {
-    private int desiredId;
+    private String desiredId;
 
-    public CubeFindSpecificationById(int desiredId){
+    public CubeFindSpecificationById(String desiredId){
         this.desiredId=desiredId;
     }
 
     @Override
     public boolean specified(Cube cube) {
-        return cube.getId()==desiredId;
+        return (cube.getId().equals(desiredId));
     }
 }

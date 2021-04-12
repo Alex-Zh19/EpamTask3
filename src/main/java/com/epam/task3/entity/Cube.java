@@ -2,24 +2,24 @@ package com.epam.task3.entity;
 
 import com.epam.task3.exception.CubeException;
 
-public class Cube {
-    private int id;
+public class Cube implements Shape{
+    private String id;
     private String name;
     private double sideLength;
     private CustomPoint centerPoint;
 
 
-    private Cube(int id) {
+    private Cube(String id) {
         this.id = id;
         this.name = "unnamed";
     }
 
-    private Cube(int id, String name) {
+    private Cube(String id, String name) {
         this.id = id;
         this.name = "name";
     }
 
-    public Cube(int id, String name, int sideLength, CustomPoint centerPoint) throws CubeException {
+    public Cube(String id, String name, double sideLength, CustomPoint centerPoint) throws CubeException {
         if(sideLength<=0){
             throw new CubeException("wrong data input. side length cannot be less than 0 :" + sideLength);
         }
@@ -29,7 +29,7 @@ public class Cube {
         this.centerPoint = centerPoint;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 

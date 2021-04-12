@@ -7,6 +7,6 @@ public class CubeSortSpecificationById implements CubeSortSpecificationInterface
 
     @Override
     public int compare(Cube o1, Cube o2) {
-        return o1.getId()-o2.getId();
+        return o1.getId().compareTo(o2.getId());
     }
 }
