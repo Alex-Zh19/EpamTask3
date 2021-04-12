@@ -1,6 +1,7 @@
 package com.epam.task3.repository.impl;
 
 import com.epam.task3.entity.Cube;
+import com.epam.task3.observer.Observable;
 import com.epam.task3.repository.CubeRepositoryInterface;
 import com.epam.task3.specification.find_specification.CubeFindSpecificationInterface;
 import com.epam.task3.specification.sort_specification.CubeSortSpecificationInterface;
@@ -79,5 +80,13 @@ public class CubeRepository implements CubeRepositoryInterface {
             }
         }
         return specifiedCubeList;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CubeRepository that = (CubeRepository) o;
+        return that.cubeList.equals(this.cubeList);
     }
 }
