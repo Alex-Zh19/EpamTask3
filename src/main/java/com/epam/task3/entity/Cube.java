@@ -8,7 +8,7 @@ import com.epam.task3.observer.Observer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cube implements Shape, Observable {
+public class Cube implements  Observable {
     private String id;
     private String name;
     private double sideLength;
