@@ -1,14 +1,13 @@
 package com.epam.task3.repository.impl;
 
 import com.epam.task3.entity.Cube;
-import com.epam.task3.observer.Observable;
 import com.epam.task3.repository.CubeRepositoryInterface;
-import com.epam.task3.specification.find_specification.CubeFindSpecificationInterface;
-import com.epam.task3.specification.sort_specification.CubeSortSpecificationInterface;
+import com.epam.task3.specification.CubeFindSpecificationInterface;
 
 import java.util.ArrayList;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -59,7 +58,7 @@ public class CubeRepository implements CubeRepositoryInterface {
     }
 
     @Override
-    public void sorting(CubeSortSpecificationInterface cubeSortSpecification) {
+    public void sorting(Comparator<Cube> cubeSortSpecification) {
         Collections.sort(cubeList, cubeSortSpecification);
     }
 

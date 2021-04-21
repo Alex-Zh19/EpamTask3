@@ -83,7 +83,8 @@ public class Cube implements Observable {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder("Cube{ sideLength= ").append(sideLength).
+        StringBuilder result = new StringBuilder("Cube{ id= ").append(id).append("name= ").
+                append(name).append("sideLength= ").append(sideLength).
                 append(", centerPoint= ").append(centerPoint).append("}");
         return result.toString();
     }

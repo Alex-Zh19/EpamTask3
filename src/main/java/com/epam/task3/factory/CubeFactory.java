@@ -3,12 +3,13 @@ package com.epam.task3.factory;
 import com.epam.task3.entity.Cube;
 import com.epam.task3.entity.CustomPoint;
 import com.epam.task3.exception.CubeException;
+import com.epam.task3.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CubeFactory {
-    private static int id = 0;
+
     private final String CUBE_SHAPE = "cube";
 
     public Cube createShape(String type, String name, int sideLength, double x, double y, double z) throws CubeException {
@@ -92,13 +93,12 @@ public class CubeFactory {
     private Cube createCube(String type, String name, double sideLength, CustomPoint centerPoint) throws CubeException {
         String cubeId = createId(type);
         Cube newCube = new Cube(cubeId, name, sideLength, centerPoint);
-        this.id++;
         return newCube;
     }
 
     private String createId(String type) {
         StringBuilder createId = new StringBuilder(type);
-        createId = createId.append(id);
+        createId = createId.append(Util.getId());
         return createId.toString();
     }
 

@@ -1,4 +1,4 @@
-package com.epam.task3.specification.find_specification;
+package com.epam.task3.specification;
 
 import com.epam.task3.entity.Cube;
 

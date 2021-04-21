@@ -1,7 +1,7 @@
-package com.epam.task3.specification.find_specification.impl;
+package com.epam.task3.specification.impl;
 
 import com.epam.task3.entity.Cube;
-import com.epam.task3.specification.find_specification.CubeFindSpecificationInterface;
+import com.epam.task3.specification.CubeFindSpecificationInterface;
 
 public class CubeFindSpecificationByVolume implements CubeFindSpecificationInterface {
     private int desiredVolumeMin;

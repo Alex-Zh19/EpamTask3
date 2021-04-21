@@ -1,11 +1,12 @@
-package com.epam.task3.specification.sort_specification.impl;
+package com.epam.task3.specification.impl;
 
 
 import com.epam.task3.entity.Cube;
-import com.epam.task3.specification.sort_specification.CubeSortSpecificationInterface;
+
+import java.util.Comparator;
 
 
-public class CubeSortSpecificationByXCoordinate implements CubeSortSpecificationInterface {
+public class CubeSortSpecificationByXCoordinate implements Comparator<Cube> {
 
     @Override
     public int compare(Cube o1, Cube o2) {

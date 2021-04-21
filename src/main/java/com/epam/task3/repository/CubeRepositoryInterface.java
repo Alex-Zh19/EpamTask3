@@ -1,10 +1,9 @@
 package com.epam.task3.repository;
 
 import com.epam.task3.entity.Cube;
-import com.epam.task3.exception.CubeException;
-import com.epam.task3.specification.find_specification.CubeFindSpecificationInterface;
-import com.epam.task3.specification.sort_specification.CubeSortSpecificationInterface;
+import com.epam.task3.specification.CubeFindSpecificationInterface;
 
+import java.util.Comparator;
 import java.util.List;
 
 public interface CubeRepositoryInterface {
@@ -18,7 +17,7 @@ public interface CubeRepositoryInterface {
 
     boolean updateCube(int position, Cube cube);
 
-    void sorting(CubeSortSpecificationInterface cubeSortSpecification);
+    void sorting(Comparator<Cube> cubeSortSpecification);
 
     List queryStream(CubeFindSpecificationInterface cubeFindSpecification);
 
