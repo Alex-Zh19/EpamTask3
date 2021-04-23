@@ -8,6 +8,11 @@ public class CustomPoint {
         this.y = y;
         this.z = z;
     }
+    public CustomPoint(CustomPoint basePoint) {
+        this.x = basePoint.x;
+        this.y = basePoint.y;
+        this.z = basePoint.z;
+    }
 
     public double getX() {
         return x;
