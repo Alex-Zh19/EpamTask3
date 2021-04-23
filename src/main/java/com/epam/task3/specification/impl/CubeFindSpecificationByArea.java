@@ -1,9 +1,9 @@
 package com.epam.task3.specification.impl;
 
 import com.epam.task3.entity.Cube;
-import com.epam.task3.specification.CubeFindSpecificationInterface;
+import com.epam.task3.specification.CubeFindSpecification;
 
-public class CubeFindSpecificationByArea implements CubeFindSpecificationInterface {
+public class CubeFindSpecificationByArea implements CubeFindSpecification {
     private int desiredArea;
 
     public CubeFindSpecificationByArea(int desiredArea) {

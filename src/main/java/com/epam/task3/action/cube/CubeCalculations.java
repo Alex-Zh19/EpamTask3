@@ -1,4 +1,4 @@
-package com.epam.task3.action.cube_action;
+package com.epam.task3.action.cube;
 
 import com.epam.task3.entity.Cube;
 import com.epam.task3.exception.CubeException;

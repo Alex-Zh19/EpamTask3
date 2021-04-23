@@ -1,17 +1,15 @@
 package com.epam.task3.repository.impl;
 
 import com.epam.task3.entity.Cube;
-import com.epam.task3.repository.CubeRepositoryInterface;
-import com.epam.task3.specification.CubeFindSpecificationInterface;
+import com.epam.task3.specification.CubeFindSpecification;
 
 import java.util.ArrayList;
 
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CubeRepository implements CubeRepositoryInterface {
+public class CubeRepository implements com.epam.task3.repository.CubeRepository {
 
     private List<Cube> cubeList;
 
@@ -34,7 +32,6 @@ public class CubeRepository implements CubeRepositoryInterface {
 
     @Override
     public boolean addCube(List<Cube> listOfCube) {
-
         return cubeList.addAll(listOfCube);
     }
 
@@ -58,20 +55,20 @@ public class CubeRepository implements CubeRepositoryInterface {
     }
 
     @Override
-    public void sorting(Comparator<Cube> cubeSortSpecification) {
-        Collections.sort(cubeList, cubeSortSpecification);
+    public CubeRepository sorting(Comparator<Cube> cubeSortSpecification) {
+         return new CubeRepository(cubeList.stream().sorted(cubeSortSpecification).collect(Collectors.toList()));
     }
 
 
     @Override
-    public List queryStream(CubeFindSpecificationInterface cubeSpecification) {
+    public List<Cube> queryStream(CubeFindSpecification cubeSpecification) {
         List<Cube> specifiedCubeList = cubeList.stream().filter(cube -> cubeSpecification.specified(cube)).
                 collect(Collectors.toList());
         return specifiedCubeList;
     }
 
     @Override
-    public List query(CubeFindSpecificationInterface cubeSpecification) {
+    public List<Cube> query(CubeFindSpecification cubeSpecification) {
         List<Cube> specifiedCubeList = new ArrayList<>();
         for (Cube currentCubeIntList : cubeList) {
             if (cubeSpecification.specified(currentCubeIntList)) {

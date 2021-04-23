@@ -1,4 +1,4 @@
-package com.epam.task3.action.point_action;
+package com.epam.task3.action.point;
 
 import com.epam.task3.entity.CustomPoint;
 import org.testng.annotations.Test;

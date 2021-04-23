@@ -1,14 +1,14 @@
 package com.epam.task3.specification.impl;
 
-import com.epam.task3.action.point_action.FindVertexPoint;
+import com.epam.task3.action.point.FindVertexPoint;
 import com.epam.task3.entity.Cube;
 import com.epam.task3.entity.CustomPoint;
-import com.epam.task3.specification.CubeFindSpecificationInterface;
+import com.epam.task3.specification.CubeFindSpecification;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CubeFindSpecificationByDistance implements CubeFindSpecificationInterface {//from point (0,0,0)
+public class CubeFindSpecificationByDistance implements CubeFindSpecification {//from point (0,0,0)
     double desiredDistance;
 
     public CubeFindSpecificationByDistance(double desiredDistance) {

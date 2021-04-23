@@ -1,6 +1,6 @@
-package com.epam.task3.observer.impl_observer;
+package com.epam.task3.observer.impl;
 
-import com.epam.task3.action.cube_action.CubeCalculations;
+import com.epam.task3.action.cube.CubeCalculations;
 
 import com.epam.task3.entity.Cube;
 import com.epam.task3.exception.CubeException;

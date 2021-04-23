@@ -1,14 +1,14 @@
 package com.epam.task3.specification.impl;
 
-import com.epam.task3.action.point_action.FindVertexPoint;
+import com.epam.task3.action.point.FindVertexPoint;
 import com.epam.task3.entity.Cube;
 import com.epam.task3.entity.CustomPoint;
-import com.epam.task3.specification.CubeFindSpecificationInterface;
+import com.epam.task3.specification.CubeFindSpecification;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CubeFindSpecificationByCoordinates implements CubeFindSpecificationInterface {
+public class CubeFindSpecificationByCoordinates implements CubeFindSpecification {
     @Override
     public boolean specified(Cube cube) {//for 1st quarter and positive z
         CustomPoint centerPointOfCube = cube.getCenterPoint();

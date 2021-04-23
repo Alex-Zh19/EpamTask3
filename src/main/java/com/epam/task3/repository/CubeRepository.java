@@ -1,12 +1,12 @@
 package com.epam.task3.repository;
 
 import com.epam.task3.entity.Cube;
-import com.epam.task3.specification.CubeFindSpecificationInterface;
+import com.epam.task3.specification.CubeFindSpecification;
 
 import java.util.Comparator;
 import java.util.List;
 
-public interface CubeRepositoryInterface {
+public interface CubeRepository {
     boolean addCube(Cube cube);
 
     boolean addCube(List<Cube> cube);
@@ -17,10 +17,10 @@ public interface CubeRepositoryInterface {
 
     boolean updateCube(int position, Cube cube);
 
-    void sorting(Comparator<Cube> cubeSortSpecification);
+    CubeRepository sorting(Comparator<Cube> cubeSortSpecification);
 
-    List queryStream(CubeFindSpecificationInterface cubeFindSpecification);
+    List<Cube> queryStream(CubeFindSpecification cubeFindSpecification);
 
-    List query(CubeFindSpecificationInterface cubeFindSpecification);
+    List<Cube> query(CubeFindSpecification cubeFindSpecification);
 
 }

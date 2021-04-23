@@ -1,6 +1,6 @@
 package com.epam.task3.warehouse;
 
-import com.epam.task3.action.cube_action.CubeCalculations;
+import com.epam.task3.action.cube.CubeCalculations;
 import com.epam.task3.entity.Cube;
 import com.epam.task3.exception.CubeException;
 import com.epam.task3.exception.WarehouseException;

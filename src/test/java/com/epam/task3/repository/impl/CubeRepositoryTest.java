@@ -4,7 +4,7 @@ import com.epam.task3.entity.Cube;
 import com.epam.task3.entity.CustomPoint;
 import com.epam.task3.exception.CubeException;
 import com.epam.task3.factory.CubeFactory;
-import com.epam.task3.specification.CubeFindSpecificationInterface;
+import com.epam.task3.specification.CubeFindSpecification;
 import com.epam.task3.specification.impl.CubeFindSpecificationById;
 import com.epam.task3.specification.impl.CubeSortSpecificationById;
 import com.epam.task3.specification.impl.CubeSortSpecificationByIdAndName;
@@ -30,16 +30,16 @@ public class CubeRepositoryTest {
             repositoryExpected.addCube(newCube);
         }
 
-        CubeRepository repositoryActual = new CubeRepository();
+        CubeRepository repository = new CubeRepository();
         for (int i = 4; i >= 0; i--) {
             CustomPoint centerPoint = new CustomPoint(i + 1, i + 2, i + 3);
             Cube newCube = new Cube("cube" + i, name.toString(), i + 2, centerPoint);
-            repositoryActual.addCube(newCube);
+            repository.addCube(newCube);
 
         }
 
         Comparator<Cube> sort = new CubeSortSpecificationById();
-        repositoryActual.sorting(sort);
+        CubeRepository repositoryActual = repository.sorting(sort);
         assertTrue(isIdSortingWorks(repositoryActual, repositoryExpected));
     }
 
@@ -54,16 +54,16 @@ public class CubeRepositoryTest {
             repositoryExpected.addCube(newCube);
         }
 
-        CubeRepository repositoryActual = new CubeRepository();
+        CubeRepository repository = new CubeRepository();
         for (int i = 4; i >= 0; i--) {
             CustomPoint centerPoint = new CustomPoint(i + 1, i + 2, i + 3);
             Cube newCube = new Cube("cube" + i, name.toString() + i + i, i + 2, centerPoint);
-            repositoryActual.addCube(newCube);
+            repository.addCube(newCube);
 
         }
 
         Comparator<Cube> sort = new CubeSortSpecificationByName();
-        repositoryActual.sorting(sort);
+        CubeRepository repositoryActual = repository.sorting(sort);
         assertTrue(isNameSortingWorks(repositoryActual, repositoryExpected));
 
     }
@@ -72,30 +72,30 @@ public class CubeRepositoryTest {
     public void testSortingByIdAndName() throws CubeException {
         StringBuilder name = new StringBuilder("name");
         CubeRepository repositoryExpected = new CubeRepository();
-        CustomPoint centerPoint = new CustomPoint(3,3,3);
-        Cube newCube1 = new Cube("cube1","name1",5,centerPoint);
-        Cube newCube2 = new Cube("cube1","name2",5,centerPoint);
-        Cube newCube3 = new Cube("cube2","name1",5,centerPoint);
-        Cube newCube4 = new Cube("cube2","name2",5,centerPoint);
+        CustomPoint centerPoint = new CustomPoint(3, 3, 3);
+        Cube newCube1 = new Cube("cube1", "name1", 5, centerPoint);
+        Cube newCube2 = new Cube("cube1", "name2", 5, centerPoint);
+        Cube newCube3 = new Cube("cube2", "name1", 5, centerPoint);
+        Cube newCube4 = new Cube("cube2", "name2", 5, centerPoint);
         repositoryExpected.addCube(newCube1);
         repositoryExpected.addCube(newCube2);
         repositoryExpected.addCube(newCube3);
         repositoryExpected.addCube(newCube4);
 
 
-        CubeRepository repositoryActual = new CubeRepository();
-        Cube newCube5 = new Cube("cube1","name1",5,centerPoint);
-        Cube newCube6 = new Cube("cube1","name2",5,centerPoint);
-        Cube newCube7 = new Cube("cube2","name1",5,centerPoint);
-        Cube newCube8 = new Cube("cube2","name2",5,centerPoint);
-        repositoryActual.addCube(newCube8);
-        repositoryActual.addCube(newCube7);
-        repositoryActual.addCube(newCube6);
-        repositoryActual.addCube(newCube5);
+        CubeRepository repository = new CubeRepository();
+        Cube newCube5 = new Cube("cube1", "name1", 5, centerPoint);
+        Cube newCube6 = new Cube("cube1", "name2", 5, centerPoint);
+        Cube newCube7 = new Cube("cube2", "name1", 5, centerPoint);
+        Cube newCube8 = new Cube("cube2", "name2", 5, centerPoint);
+        repository.addCube(newCube8);
+        repository.addCube(newCube7);
+        repository.addCube(newCube6);
+        repository.addCube(newCube5);
 
         Comparator<Cube> sort = new CubeSortSpecificationByIdAndName();
-        repositoryActual.sorting(sort);
-        assertEquals(repositoryActual,repositoryExpected);
+        CubeRepository repositoryActual = repository.sorting(sort);
+        assertEquals(repositoryActual, repositoryExpected);
     }
 
 
@@ -127,7 +127,7 @@ public class CubeRepositoryTest {
         } catch (CubeException e) {
 
         }
-        CubeFindSpecificationInterface find = new CubeFindSpecificationById("type2");
+        CubeFindSpecification find = new CubeFindSpecificationById("type2");
         List<Cube> repositoryActual = repository.query(find);
         assertEquals(repositoryActual, repositoryExpected);
     }
@@ -160,7 +160,7 @@ public class CubeRepositoryTest {
         } catch (CubeException e) {
 
         }
-        CubeFindSpecificationInterface find = new CubeFindSpecificationById("type2");
+        CubeFindSpecification find = new CubeFindSpecificationById("type2");
         List<Cube> repositoryActual = repository.query(find);
         assertEquals(repositoryActual, repositoryExpected);
     }
@@ -173,6 +173,7 @@ public class CubeRepositoryTest {
         int actualSize = listActual.size();
         if (actualSize != listExpected.size()) return false;
         for (int i = 0; i < actualSize; i++) {
+            System.out.println(listActual.get(i).getId() + " and " + listExpected.get(i).getId());
             if (listActual.get(i).getId().equals(listExpected.get(i).getId())) {
 
             } else {
