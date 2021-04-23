@@ -4,52 +4,28 @@ import com.epam.task3.entity.Cube;
 import com.epam.task3.entity.CustomPoint;
 import com.epam.task3.exception.CubeException;
 import com.epam.task3.util.Util;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CubeFactory {
-
+    private final static Logger logger = LogManager.getLogger();
     private final String CUBE_SHAPE = "cube";
+    private final String ANY_OTHER_SHAPE = "shape";
 
     public Cube createShape(String type, String name, int sideLength, double x, double y, double z) throws CubeException {
-        if (type == null) {
-            throw new CubeException("shape without type cannot be created");
-        }
-        if (sideLength <= 0) {
-            throw new CubeException("wrong data input. side length cannot be less than 0 :" + sideLength);
-        }
-        if (name == null) {
-            name = "unnamed";
-        }
+        name = checkCubeParameters(type, name, sideLength);
         CustomPoint centerPoint = createPoint(x, y, z);
-        switch (type.toLowerCase()) {
-            case CUBE_SHAPE://create cube
-                Cube newCube = createCube(type, name, sideLength, centerPoint);
-                return newCube;
-            default:
-                throw new CubeException("wrong data input. can't define type of shape : " + type);
-        }
+        return chooseShapeAndCreateIt(type, name, sideLength, centerPoint);
 
     }
 
     public Cube createShape(String type, String name, int sideLength, CustomPoint centerPoint) throws CubeException {
-        if (type == null) {
-            throw new CubeException("shape without type cannot be created");
-        }
-        if (sideLength <= 0) {
-            throw new CubeException("wrong data input. side length cannot be less than 0 :" + sideLength);
-        }
-        if (name == null) {
-            name = "unnamed";
-        }
-        switch (type.toLowerCase()) {
-            case CUBE_SHAPE://create cube
-                Cube newCube = createCube(type, name, sideLength, centerPoint);
-                return newCube;
-            default:
-                throw new CubeException("wrong data input. can't define type of shape : " + type);
-        }
+        name = checkCubeParameters(type, name, sideLength);
+        return chooseShapeAndCreateIt(type, name, sideLength, centerPoint);
 
     }
 
@@ -82,6 +58,9 @@ public class CubeFactory {
                     Cube newCube = createCube(type, name, sideLength, centerPoint);
                     shapeList.add(newCube);
                     break;
+                case ANY_OTHER_SHAPE://create other shape
+                    logger.log(Level.INFO, "other shape");
+                    break;
                 default:
                     throw new CubeException("wrong data input. can't define type of shape : " + type);
             }
@@ -89,6 +68,36 @@ public class CubeFactory {
         }
         return shapeList;
     }
+
+    private String checkCubeParameters(String type, String name, int sideLength) throws CubeException {
+        if (type == null) {
+            logger.log(Level.ERROR, "shape without type cannot be created");
+            throw new CubeException("shape without type cannot be created");
+        }
+        if (sideLength <= 0) {
+            logger.log(Level.ERROR, "wrong data input. side length cannot be less than 0 :" + sideLength);
+            throw new CubeException("wrong data input. side length cannot be less than 0 :" + sideLength);
+        }
+        if (name == null) {
+            name = "unnamed";
+        }
+        return name;
+    }
+
+
+    private Cube chooseShapeAndCreateIt(String type, String name, int sideLength, CustomPoint centerPoint) throws CubeException {
+        switch (type.toLowerCase()) {
+            case CUBE_SHAPE://create cube
+                Cube newCube = createCube(type, name, sideLength, centerPoint);
+                return newCube;
+            case ANY_OTHER_SHAPE://create other shape
+                logger.log(Level.INFO, "other shape");
+            default:
+                logger.log(Level.ERROR, "wrong data input. can't define type of shape : " + type);
+                throw new CubeException("wrong data input. can't define type of shape : " + type);
+        }
+    }
+
 
     private Cube createCube(String type, String name, double sideLength, CustomPoint centerPoint) throws CubeException {
         String cubeId = createId(type);

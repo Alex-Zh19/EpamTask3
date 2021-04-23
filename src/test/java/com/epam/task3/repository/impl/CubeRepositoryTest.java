@@ -7,6 +7,7 @@ import com.epam.task3.factory.CubeFactory;
 import com.epam.task3.specification.CubeFindSpecificationInterface;
 import com.epam.task3.specification.impl.CubeFindSpecificationById;
 import com.epam.task3.specification.impl.CubeSortSpecificationById;
+import com.epam.task3.specification.impl.CubeSortSpecificationByIdAndName;
 import com.epam.task3.specification.impl.CubeSortSpecificationByName;
 import org.testng.annotations.Test;
 
@@ -87,22 +88,14 @@ public class CubeRepositoryTest {
         Cube newCube6 = new Cube("cube1","name2",5,centerPoint);
         Cube newCube7 = new Cube("cube2","name1",5,centerPoint);
         Cube newCube8 = new Cube("cube2","name2",5,centerPoint);
-        Cube newCube9 = new Cube("cube2","name0",5,centerPoint);
-        Cube newCube10 = new Cube("cube1","name0",5,centerPoint);
-        repositoryActual.addCube(newCube9);
         repositoryActual.addCube(newCube8);
         repositoryActual.addCube(newCube7);
-        repositoryActual.addCube(newCube10);
         repositoryActual.addCube(newCube6);
         repositoryActual.addCube(newCube5);
 
-        Comparator<Cube> sort = new CubeSortSpecificationById();
-        repositoryActual.sorting(sort.thenComparing(new CubeSortSpecificationByName()));
-        List<Cube>list=repositoryActual.getCubeList();
-        for(Cube c:list){
-            System.out.println("id :"+c.getId()+"  name: "+c.getName());
-        }
-
+        Comparator<Cube> sort = new CubeSortSpecificationByIdAndName();
+        repositoryActual.sorting(sort);
+        assertEquals(repositoryActual,repositoryExpected);
     }
 
 

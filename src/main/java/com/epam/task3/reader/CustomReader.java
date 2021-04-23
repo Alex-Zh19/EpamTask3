@@ -36,17 +36,17 @@ public class CustomReader {
             logger.log(Level.ERROR, "file is empty :" + fileName);
             throw new CubeException("file is empty :" + fileName);
         }
-        List<String> validString;
+        List<String> validStrings;
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
-            validString = stream.filter(i -> CustomValidator.validateString(i)).collect(Collectors.toList());
+            validStrings = stream.filter(i -> CustomValidator.validateString(i)).collect(Collectors.toList());
         } catch (IOException exception) {
             throw new CubeException(exception);
         }
 
-        if (validString.isEmpty()) {
+        if (validStrings.isEmpty()) {
             logger.log(Level.ERROR, "incorrect data in file :" + fileName);
             throw new CubeException("incorrect data in file :" + fileName);
         }
-        return validString;
+        return validStrings;
     }
 }
