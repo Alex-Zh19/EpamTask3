@@ -173,7 +173,6 @@ public class CubeRepositoryTest {
         int actualSize = listActual.size();
         if (actualSize != listExpected.size()) return false;
         for (int i = 0; i < actualSize; i++) {
-            System.out.println(listActual.get(i).getId() + " and " + listExpected.get(i).getId());
             if (listActual.get(i).getId().equals(listExpected.get(i).getId())) {
 
             } else {
@@ -190,7 +189,6 @@ public class CubeRepositoryTest {
         int actualSize = listActual.size();
         if (actualSize != listExpected.size()) return false;
         for (int i = 0; i < actualSize; i++) {
-            System.out.println(listActual.get(i).getName() + " and " + listExpected.get(i).getName());
             if (listActual.get(i).getName().equals(listExpected.get(i).getName())) {
 
             } else {
