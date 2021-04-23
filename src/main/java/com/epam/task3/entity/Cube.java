@@ -15,17 +15,7 @@ public class Cube implements Observable {
     private CustomPoint centerPoint;
     private List<Observer> observers = new ArrayList<>();
 
-
-    private Cube(String id) {
-        this.id = id;
-        this.name = "unnamed";
-    }
-
-    private Cube(String id, String name) {
-        this.id = id;
-        this.name = "name";
-    }
-
+    
     public Cube(String id, String name, double sideLength, CustomPoint centerPoint) throws CubeException {
         if (sideLength <= 0) {
             throw new CubeException("wrong data input. side length cannot be less than 0 :" + sideLength);
