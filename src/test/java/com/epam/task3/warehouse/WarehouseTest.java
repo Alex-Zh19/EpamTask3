@@ -1,6 +1,6 @@
 package com.epam.task3.warehouse;
 
-import com.epam.task3.action.cube.CubeCalculations;
+import com.epam.task3.action.cube.CubeCalculation;
 import com.epam.task3.entity.Cube;
 import com.epam.task3.exception.CubeException;
 import com.epam.task3.exception.WarehouseException;
@@ -14,7 +14,7 @@ public class WarehouseTest {
     @Test
     public void testGetParameter() {
         CubeFactory factory = new CubeFactory();
-        CubeCalculations calculations = new CubeCalculations();
+        CubeCalculation calculations = new CubeCalculation();
         try {
             Cube testCube = factory.createShape("type1", "name", 4, 1, 2, 3);
             double volume = calculations.cubeVolumeCalculation(testCube);

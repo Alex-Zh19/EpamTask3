@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -25,15 +24,15 @@ public class CustomReader {
         }
         File file = new File(fileName);
         if (!file.isFile() || !file.exists()) {
-            logger.log(Level.ERROR, "file isn't exist :" + fileName);
+            logger.log(Level.ERROR, "file isn't exist : {}", fileName);
             throw new CubeException("file isn't exist :" + fileName);
         }
         if (!file.canRead()) {
-            logger.log(Level.ERROR, "can't read file :" + fileName);
+            logger.log(Level.ERROR, "can't read file : {}", fileName);
             throw new CubeException("can't read file :" + fileName);
         }
         if (file.length() == 0) {
-            logger.log(Level.ERROR, "file is empty :" + fileName);
+            logger.log(Level.ERROR, "file is empty : {}", fileName);
             throw new CubeException("file is empty :" + fileName);
         }
         List<String> validStrings;
@@ -44,7 +43,7 @@ public class CustomReader {
         }
 
         if (validStrings.isEmpty()) {
-            logger.log(Level.ERROR, "incorrect data in file :" + fileName);
+            logger.log(Level.ERROR, "incorrect data in file : {}", fileName);
             throw new CubeException("incorrect data in file :" + fileName);
         }
         return validStrings;

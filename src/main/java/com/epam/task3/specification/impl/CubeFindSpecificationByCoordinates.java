@@ -1,6 +1,6 @@
 package com.epam.task3.specification.impl;
 
-import com.epam.task3.action.point.FindVertexPoint;
+import com.epam.task3.action.point.CustomPointCalculation;
 import com.epam.task3.entity.Cube;
 import com.epam.task3.entity.CustomPoint;
 import com.epam.task3.specification.CubeFindSpecification;
@@ -13,24 +13,24 @@ public class CubeFindSpecificationByCoordinates implements CubeFindSpecification
     public boolean specified(Cube cube) {//for 1st quarter and positive z
         CustomPoint centerPointOfCube = cube.getCenterPoint();
 
-        FindVertexPoint findVertexPoint = new FindVertexPoint();
+        CustomPointCalculation customPointCalculation = new CustomPointCalculation();
 
         double halfOfSideLength = cube.getSideLength() / 2;
 
         List<CustomPoint> vertexPointList = new ArrayList<>();
-        CustomPoint pointOfCube1 = findVertexPoint.findAnotherPoint(centerPointOfCube, halfOfSideLength,
+        CustomPoint pointOfCube1 = customPointCalculation.findVertexPoint(centerPointOfCube, halfOfSideLength,
                 -1, -1, -1);
         vertexPointList.add(pointOfCube1);
 
-        CustomPoint pointOfCube2 = findVertexPoint.findAnotherPoint(centerPointOfCube, halfOfSideLength,
+        CustomPoint pointOfCube2 = customPointCalculation.findVertexPoint(centerPointOfCube, halfOfSideLength,
                 1, -1, -1);
         vertexPointList.add(pointOfCube2);
 
-        CustomPoint pointOfCube3 = findVertexPoint.findAnotherPoint(centerPointOfCube, halfOfSideLength,
+        CustomPoint pointOfCube3 = customPointCalculation.findVertexPoint(centerPointOfCube, halfOfSideLength,
                 -1, 1, -1);
         vertexPointList.add(pointOfCube3);
 
-        CustomPoint pointOfCube4 = findVertexPoint.findAnotherPoint(centerPointOfCube, halfOfSideLength,
+        CustomPoint pointOfCube4 = customPointCalculation.findVertexPoint(centerPointOfCube, halfOfSideLength,
                 1, 1, -1);
         vertexPointList.add(pointOfCube4);
 

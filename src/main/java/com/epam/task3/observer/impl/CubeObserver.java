@@ -1,6 +1,6 @@
 package com.epam.task3.observer.impl;
 
-import com.epam.task3.action.cube.CubeCalculations;
+import com.epam.task3.action.cube.CubeCalculation;
 
 import com.epam.task3.entity.Cube;
 import com.epam.task3.exception.CubeException;
@@ -14,7 +14,7 @@ import org.apache.logging.log4j.Logger;
 
 public class CubeObserver implements Observer {
     private final static Logger logger = LogManager.getLogger();
-    private final CubeCalculations calculations = new CubeCalculations();
+    private final CubeCalculation calculations = new CubeCalculation();
 
     @Override
     public void parameterChanged(CubeEvent event) {

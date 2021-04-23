@@ -59,21 +59,22 @@ public class Cube implements Observable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (getClass() != o.getClass() || o == null) return false;
-        Cube that = (Cube) o;
-        return that.centerPoint == centerPoint && sideLength == that.sideLength;
+        Cube other = (Cube) o;
+        return other.centerPoint == centerPoint && sideLength == other.sideLength;
     }
 
     @Override
     public int hashCode() {
         int result = 9;
         Double sideLen = sideLength;
-        result += centerPoint.hashCode() + sideLen.hashCode();
+        result = result + centerPoint.hashCode() + sideLen.hashCode() + name.hashCode() + id.hashCode();
         return result;
     }
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder("Cube{ id= ").append(id).append("name= ").
+        StringBuilder result = new StringBuilder("Cube{ id= ");
+        result.append(id).append("name= ").
                 append(name).append("sideLength= ").append(sideLength).
                 append(", centerPoint= ").append(centerPoint).append("}");
         return result.toString();

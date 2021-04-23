@@ -8,6 +8,7 @@ public class CustomPoint {
         this.y = y;
         this.z = z;
     }
+
     public CustomPoint(CustomPoint basePoint) {
         this.x = basePoint.x;
         this.y = basePoint.y;
@@ -42,8 +43,8 @@ public class CustomPoint {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CustomPoint that = (CustomPoint) o;
-        return x == that.x && y == that.y && z == that.z;
+        CustomPoint other = (CustomPoint) o;
+        return x == other.x && y == other.y && z == other.z;
     }
 
     @Override
@@ -52,7 +53,7 @@ public class CustomPoint {
         Double x = this.x;
         Double y = this.y;
         Double z = this.z;
-        result += x.hashCode() + y.hashCode() + z.hashCode();
+        result = result + x.hashCode() + y.hashCode() + z.hashCode();
         return result;
     }
 
@@ -61,7 +62,8 @@ public class CustomPoint {
         Double x = this.x;
         Double y = this.y;
         Double z = this.z;
-        StringBuilder result = new StringBuilder("Point (").append(x).append(";")
+        StringBuilder result = new StringBuilder("Point (");
+        result.append(x).append(";")
                 .append(y).append(";").append(z).append(")");
         return result.toString();
     }

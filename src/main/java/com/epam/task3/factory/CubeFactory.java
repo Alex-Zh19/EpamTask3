@@ -62,6 +62,7 @@ public class CubeFactory {
                     logger.log(Level.INFO, "other shape");
                     break;
                 default:
+                    logger.log(Level.ERROR, "wrong data input. can't define type of shape : {} ", type);
                     throw new CubeException("wrong data input. can't define type of shape : " + type);
             }
 
@@ -75,7 +76,7 @@ public class CubeFactory {
             throw new CubeException("shape without type cannot be created");
         }
         if (sideLength <= 0) {
-            logger.log(Level.ERROR, "wrong data input. side length cannot be less than 0 :" + sideLength);
+            logger.log(Level.ERROR, "wrong data input. side length cannot be less than 0 : {}", sideLength);
             throw new CubeException("wrong data input. side length cannot be less than 0 :" + sideLength);
         }
         if (name == null) {
@@ -93,7 +94,7 @@ public class CubeFactory {
             case ANY_OTHER_SHAPE://create other shape
                 logger.log(Level.INFO, "other shape");
             default:
-                logger.log(Level.ERROR, "wrong data input. can't define type of shape : " + type);
+                logger.log(Level.ERROR, "wrong data input. can't define type of shape : {} ", type);
                 throw new CubeException("wrong data input. can't define type of shape : " + type);
         }
     }

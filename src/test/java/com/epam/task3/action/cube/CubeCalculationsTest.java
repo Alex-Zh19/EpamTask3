@@ -11,7 +11,7 @@ public class CubeCalculationsTest {
     @Test
     public void testCubeAreaCalculation() {
         CubeFactory factory=new CubeFactory();
-        CubeCalculations calculations=new CubeCalculations();
+        CubeCalculation calculations=new CubeCalculation();
         double expectedArea=216.0;
         try {
             Cube testCube=factory.createShape("cube", "name",6,1,2,3);
@@ -26,7 +26,7 @@ public class CubeCalculationsTest {
     @Test
     public void testCubeVolumeCalculation() {
         CubeFactory factory=new CubeFactory();
-        CubeCalculations calculations=new CubeCalculations();
+        CubeCalculation calculations=new CubeCalculation();
         double expectedArea=216.0;
         try {
             Cube testCube=factory.createShape("cube", "name",6,1,2,3);
@@ -40,7 +40,7 @@ public class CubeCalculationsTest {
     @Test
     public void testCubePerimeterCalculation() {
         CubeFactory factory=new CubeFactory();
-        CubeCalculations calculations=new CubeCalculations();
+        CubeCalculation calculations=new CubeCalculation();
         double expectedArea=72.0;
         try {
             Cube testCube=factory.createShape("cube", "name",6,1,2,3);
