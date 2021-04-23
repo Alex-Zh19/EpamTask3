@@ -100,16 +100,12 @@ public class CubeFactory {
 
 
     private Cube createCube(String type, String name, double sideLength, CustomPoint centerPoint) throws CubeException {
-        String cubeId = createId(type);
+        String cubeId = Util.createId(type);
         Cube newCube = new Cube(cubeId, name, sideLength, centerPoint);
         return newCube;
     }
 
-    private String createId(String type) {
-        StringBuilder createId = new StringBuilder(type);
-        createId = createId.append(Util.getId());
-        return createId.toString();
-    }
+
 
 
     private CustomPoint createPoint(double x, double y, double z) {

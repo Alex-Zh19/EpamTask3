@@ -6,7 +6,8 @@ public class Util {
     private Util(){
     }
 
-    public static int getId(){
-        return id++;
+    public static String createId(String type){
+        StringBuilder createId = new StringBuilder(type).append(id++);
+        return createId.toString();
     }
 }
