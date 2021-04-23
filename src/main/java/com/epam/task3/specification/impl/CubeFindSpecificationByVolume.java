@@ -14,9 +14,7 @@ public class CubeFindSpecificationByVolume implements CubeFindSpecification {
 
     @Override
     public boolean specified(Cube cube) {
-        double volume = cube.getSideLength() *
-                cube.getSideLength() *
-                cube.getSideLength();
+        double volume = Math.pow(cube.getSideLength(), 3);
         return (volume >= desiredVolumeMin) && (volume <= desiredVolumeMax);
     }
 }

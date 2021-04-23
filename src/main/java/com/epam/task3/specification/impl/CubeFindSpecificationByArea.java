@@ -12,7 +12,7 @@ public class CubeFindSpecificationByArea implements CubeFindSpecification {
 
     @Override
     public boolean specified(Cube cube) {
-        double cubeArea = cube.getSideLength() * cube.getSideLength() * 6;
+        double cubeArea = Math.pow(cube.getSideLength(), 2) * 6;
         return cubeArea == desiredArea;
     }
 }

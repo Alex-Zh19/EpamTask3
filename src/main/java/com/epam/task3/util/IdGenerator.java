@@ -1,9 +1,9 @@
 package com.epam.task3.util;
 
-public class Util {
+public class IdGenerator {
     private static int id = 0;
 
-    private Util(){
+    private IdGenerator(){
     }
 
     public static String createId(String type){

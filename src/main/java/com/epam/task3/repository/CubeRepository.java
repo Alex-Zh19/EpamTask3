@@ -9,7 +9,7 @@ import java.util.List;
 public interface CubeRepository {
     boolean addCube(Cube cube);
 
-    boolean addCube(List<Cube> cube);
+    boolean addAll(List<Cube> cube);
 
     boolean removeCube(Cube cube);
 
@@ -17,10 +17,12 @@ public interface CubeRepository {
 
     boolean updateCube(int position, Cube cube);
 
-    CubeRepository sorting(Comparator<Cube> cubeSortSpecification);
+    CubeRepository sort(Comparator<Cube> cubeSortSpecification);
 
     List<Cube> queryStream(CubeFindSpecification cubeFindSpecification);
 
     List<Cube> query(CubeFindSpecification cubeFindSpecification);
+
+    //предикат нужен ли
 
 }

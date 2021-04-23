@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class Warehouse {
     private static final Warehouse instanceWarehouse = new Warehouse();
-    private final static Logger logger= LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger();
     private final Map<String, CubeParameter> cubeParameterMap = new HashMap<>();
 
     public static Warehouse getInstance() {
@@ -25,7 +25,7 @@ public class Warehouse {
     public CubeParameter getParameter(String id) throws WarehouseException {
         CubeParameter cubeParameter = instanceWarehouse.getParameter(id);
         if (cubeParameter == null) {
-            logger.log(Level.ERROR,"wrong id. no such element in warehouse : {}", id);
+            logger.log(Level.ERROR, "wrong id. no such element in warehouse : {}", id);
             throw new WarehouseException("wrong id. no such element in warehouse :" + id);
         }
         return cubeParameter;
@@ -34,7 +34,7 @@ public class Warehouse {
     public void updateElement(String id, double newVolume, double newArea, double newPerimeter) throws WarehouseException {
         CubeParameter cubeParameter = instanceWarehouse.getParameter(id);
         if (cubeParameter == null) {
-            logger.log(Level.ERROR,"wrong id. no such element in warehouse : {}", id);
+            logger.log(Level.ERROR, "wrong id. no such element in warehouse : {}", id);
             throw new WarehouseException("wrong id. no such element in warehouse :" + id);
         }
         cubeParameter.setPerimeter(newPerimeter);

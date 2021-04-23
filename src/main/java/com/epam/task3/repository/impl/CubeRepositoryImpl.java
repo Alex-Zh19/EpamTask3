@@ -1,6 +1,7 @@
 package com.epam.task3.repository.impl;
 
 import com.epam.task3.entity.Cube;
+import com.epam.task3.repository.CubeRepository;
 import com.epam.task3.specification.CubeFindSpecification;
 
 import java.util.ArrayList;
@@ -9,15 +10,15 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CubeRepository implements com.epam.task3.repository.CubeRepository {
+public class CubeRepositoryImpl implements CubeRepository {
 
     private List<Cube> cubeList;
 
-    public CubeRepository() {
+    public CubeRepositoryImpl() {
         cubeList = new ArrayList<>();
     }
 
-    public CubeRepository(List<Cube> baseCubeList) {
+    public CubeRepositoryImpl(List<Cube> baseCubeList) {
         cubeList = new ArrayList<>(baseCubeList);
     }
 
@@ -31,7 +32,7 @@ public class CubeRepository implements com.epam.task3.repository.CubeRepository 
     }
 
     @Override
-    public boolean addCube(List<Cube> listOfCube) {
+    public boolean addAll(List<Cube> listOfCube) {
         return cubeList.addAll(listOfCube);
     }
 
@@ -55,14 +56,14 @@ public class CubeRepository implements com.epam.task3.repository.CubeRepository 
     }
 
     @Override
-    public CubeRepository sorting(Comparator<Cube> cubeSortSpecification) {
-         return new CubeRepository(cubeList.stream().sorted(cubeSortSpecification).collect(Collectors.toList()));
+    public CubeRepositoryImpl sort(Comparator<Cube> cubeSortSpecification) {
+        return new CubeRepositoryImpl(cubeList.stream().sorted(cubeSortSpecification).collect(Collectors.toList()));
     }
 
 
     @Override
     public List<Cube> queryStream(CubeFindSpecification cubeSpecification) {
-        List<Cube> specifiedCubeList = cubeList.stream().filter(cube -> cubeSpecification.specified(cube)).
+        List<Cube> specifiedCubeList = cubeList.stream().filter(cubeSpecification::specified).
                 collect(Collectors.toList());
         return specifiedCubeList;
     }
@@ -79,10 +80,10 @@ public class CubeRepository implements com.epam.task3.repository.CubeRepository 
     }
 
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CubeRepository that = (CubeRepository) o;
+        CubeRepositoryImpl that = (CubeRepositoryImpl) o;
         return that.cubeList.equals(this.cubeList);
     }
 }

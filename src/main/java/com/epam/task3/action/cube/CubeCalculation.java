@@ -7,15 +7,13 @@ public class CubeCalculation {
 
     public double cubeAreaCalculation(Cube cube) throws CubeException {
         checkNotNull(cube);
-        double result = cube.getSideLength() * cube.getSideLength() * 6;
+        double result = Math.pow(cube.getSideLength(), 2) * 6;
         return result;
     }
 
     public double cubeVolumeCalculation(Cube cube) throws CubeException {
         checkNotNull(cube);
-        double result = cube.getSideLength() *
-                cube.getSideLength() *
-                cube.getSideLength();
+        double result = Math.pow(cube.getSideLength(), 3);
         return result;
     }
 
@@ -26,7 +24,7 @@ public class CubeCalculation {
     }
 
 
-    private void checkNotNull(Cube cube) throws CubeException{
+    private void checkNotNull(Cube cube) throws CubeException {
         if (cube == null) {
             throw new CubeException("Cube cannot be null");
         }

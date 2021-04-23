@@ -3,7 +3,7 @@ package com.epam.task3.factory;
 import com.epam.task3.entity.Cube;
 import com.epam.task3.entity.CustomPoint;
 import com.epam.task3.exception.CubeException;
-import com.epam.task3.util.Util;
+import com.epam.task3.util.IdGenerator;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -101,7 +101,7 @@ public class CubeFactory {
 
 
     private Cube createCube(String type, String name, double sideLength, CustomPoint centerPoint) throws CubeException {
-        String cubeId = Util.createId(type);
+        String cubeId = IdGenerator.createId(type);
         Cube newCube = new Cube(cubeId, name, sideLength, centerPoint);
         return newCube;
     }
