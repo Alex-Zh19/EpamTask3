@@ -17,7 +17,7 @@ public interface CubeRepository {
 
     boolean updateCube(int position, Cube cube);
 
-    CubeRepository sort(Comparator<Cube> cubeSortSpecification);
+    List<Cube> sort(Comparator<Cube> cubeSortSpecification);
 
     List<Cube> queryStream(CubeFindSpecification cubeFindSpecification);
 

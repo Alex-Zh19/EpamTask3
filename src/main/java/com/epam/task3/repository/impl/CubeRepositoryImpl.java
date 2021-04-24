@@ -12,23 +12,21 @@ import java.util.stream.Collectors;
 
 public class CubeRepositoryImpl implements CubeRepository {
 
-    private List<Cube> cubeList;
+    private static final CubeRepository repositoryInstance=new CubeRepositoryImpl();
+    private final List<Cube> cubeList=new ArrayList<>();
 
-    public CubeRepositoryImpl() {
-        cubeList = new ArrayList<>();
+
+    private CubeRepositoryImpl() {
     }
 
-    public CubeRepositoryImpl(List<Cube> baseCubeList) {
-        cubeList = new ArrayList<>(baseCubeList);
+    public static CubeRepository getRepositoryInstance(){
+        return repositoryInstance;
     }
 
-    public List<Cube> getCubeList() {
-        return new ArrayList<>(cubeList);
-    }
 
     @Override
     public boolean addCube(Cube cube) {
-        return cubeList.add(cube);
+        return cubeList.add(new Cube(cube));
     }
 
     @Override
@@ -49,15 +47,15 @@ public class CubeRepositoryImpl implements CubeRepository {
     @Override
     public boolean updateCube(int position, Cube cube) {
         if (position >= 0 && position < cubeList.size()) {
-            cubeList.add(position, cube);
+            cubeList.add(position,new Cube(cube));
             return true;
         }
         return false;
     }
 
     @Override
-    public CubeRepositoryImpl sort(Comparator<Cube> cubeSortSpecification) {
-        return new CubeRepositoryImpl(cubeList.stream().sorted(cubeSortSpecification).collect(Collectors.toList()));
+    public List<Cube> sort(Comparator<Cube> cubeSortSpecification) {
+        return cubeList.stream().sorted(cubeSortSpecification).collect(Collectors.toList());
     }
 
 

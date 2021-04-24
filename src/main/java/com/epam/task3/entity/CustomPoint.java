@@ -3,6 +3,9 @@ package com.epam.task3.entity;
 public class CustomPoint {
     private double x, y, z;
 
+    public CustomPoint(){
+    }
+
     public CustomPoint(double x, double y, double z) {
         this.x = x;
         this.y = y;
