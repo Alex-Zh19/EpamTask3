@@ -107,8 +107,6 @@ public class CubeFactory {
     }
 
 
-
-
     private CustomPoint createPoint(double x, double y, double z) {
         return new CustomPoint(x, y, z);
     }

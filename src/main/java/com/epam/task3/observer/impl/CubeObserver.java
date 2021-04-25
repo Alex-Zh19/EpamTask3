@@ -21,7 +21,7 @@ public class CubeObserver implements Observer {
         double perimeter = 0.0;
         double volume = 0.0;
         double area = 0.0;
-        Cube sourceCube=event.getSource();
+        Cube sourceCube = event.getSource();
         try {
             perimeter = calculations.cubePerimeterCalculation(sourceCube);
         } catch (CubeException e) {

@@ -26,11 +26,11 @@ public class Cube implements Observable {
         this.centerPoint = centerPoint;
     }
 
-    public Cube(Cube base){
-        this.id=base.id;
-        this.name=base.name;
-        this.sideLength= base.sideLength;
-        this.centerPoint=base.getCenterPoint();
+    public Cube(Cube base) {
+        this.id = base.id;
+        this.name = base.name;
+        this.sideLength = base.sideLength;
+        this.centerPoint = base.getCenterPoint();
     }
 
     public String getId() {
@@ -67,7 +67,7 @@ public class Cube implements Observable {
         if (this == o) return true;
         if (getClass() != o.getClass() || o == null) return false;
         Cube other = (Cube) o;
-        return other.id.equals(id)&&other.name.equals(name)&&other.centerPoint.equals(centerPoint) && sideLength == other.sideLength;
+        return other.id.equals(id) && other.name.equals(name) && other.centerPoint.equals(centerPoint) && sideLength == other.sideLength;
     }
 
     @Override

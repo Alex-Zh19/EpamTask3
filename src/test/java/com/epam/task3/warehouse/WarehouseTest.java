@@ -20,12 +20,12 @@ public class WarehouseTest {
             double volume = calculations.cubeVolumeCalculation(testCube);
             double perimeter = calculations.cubePerimeterCalculation(testCube);
             double area = calculations.cubeAreaCalculation(testCube);
-            double volumeExpected=8;
+            double volumeExpected = 8;
             Warehouse.getInstance().putParameters("type1", volume, area, perimeter);
             testCube.setSideLength(2);
             try {
                 CubeParameter parameterActual = Warehouse.getInstance().getParameter("type1");
-                assertEquals(parameterActual.getVolume(),volumeExpected);
+                assertEquals(parameterActual.getVolume(), volumeExpected);
 
             } catch (WarehouseException e) {
 

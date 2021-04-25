@@ -24,7 +24,7 @@ public class CubeRepositoryImplTest {
     @Test
     public void testSortById() throws CubeException {
         StringBuilder name = new StringBuilder("name");
-        CubeRepository repository=CubeRepositoryImpl.getRepositoryInstance();
+        CubeRepository repository = CubeRepositoryImpl.getRepositoryInstance();
 
         for (int i = 4; i >= 0; i--) {
             CustomPoint centerPoint = new CustomPoint(i + 1, i + 2, i + 3);
@@ -58,7 +58,7 @@ public class CubeRepositoryImplTest {
     public void testSortingByIdAndName() throws CubeException {
         CustomPoint centerPoint = new CustomPoint(3, 3, 3);
 
-        CubeRepository repository =CubeRepositoryImpl.getRepositoryInstance();
+        CubeRepository repository = CubeRepositoryImpl.getRepositoryInstance();
         Cube newCube5 = new Cube("cube1", "name1", 5, centerPoint);
         Cube newCube6 = new Cube("cube1", "name2", 5, centerPoint);
         Cube newCube7 = new Cube("cube2", "name1", 5, centerPoint);
@@ -110,7 +110,7 @@ public class CubeRepositoryImplTest {
     public void testQuery() {
         CubeFactory factory = new CubeFactory();
         StringBuilder name = new StringBuilder("name");
-        CubeRepository repository =CubeRepositoryImpl.getRepositoryInstance();
+        CubeRepository repository = CubeRepositoryImpl.getRepositoryInstance();
         for (int i = 0; i < 4; i++) {
             try {
                 if (i < 2) {
@@ -139,7 +139,7 @@ public class CubeRepositoryImplTest {
         assertEquals(repositoryActual, repositoryExpected);
     }
 
-    private boolean isIdAndNameSortWorks(List<Cube> listActual)throws  CubeException{
+    private boolean isIdAndNameSortWorks(List<Cube> listActual) throws CubeException {
         List<Cube> listExpected = new ArrayList<>();
         CustomPoint centerPoint = new CustomPoint(3, 3, 3);
         Cube newCube1 = new Cube("cube1", "name1", 5, centerPoint);
@@ -156,9 +156,9 @@ public class CubeRepositoryImplTest {
     }
 
 
-    private boolean isIdSortingWorks(List<Cube> listActual ) throws CubeException {
+    private boolean isIdSortingWorks(List<Cube> listActual) throws CubeException {
         StringBuilder name = new StringBuilder("name");
-        List<Cube> listExpected=new ArrayList<>();
+        List<Cube> listExpected = new ArrayList<>();
         for (int i = 0; i <= 4; i++) {
             CustomPoint centerPoint = new CustomPoint(i + 1, i + 2, i + 3);
             Cube newCube = new Cube("cube" + i, name.toString(), i + 2, centerPoint);
@@ -178,9 +178,9 @@ public class CubeRepositoryImplTest {
         return true;
     }
 
-    private boolean isNameSortingWorks(List<Cube>listActual) throws CubeException{
+    private boolean isNameSortingWorks(List<Cube> listActual) throws CubeException {
         StringBuilder name = new StringBuilder("name");
-        List<Cube> listExpected =new ArrayList<>();
+        List<Cube> listExpected = new ArrayList<>();
         for (int i = 0; i <= 4; i++) {
             CustomPoint centerPoint = new CustomPoint(i + 1, i + 2, i + 3);
             Cube newCube = new Cube("cube" + i, name.toString() + i + i, i + 2, centerPoint);

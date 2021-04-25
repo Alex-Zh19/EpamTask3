@@ -12,14 +12,14 @@ import java.util.stream.Collectors;
 
 public class CubeRepositoryImpl implements CubeRepository {
 
-    private static final CubeRepository repositoryInstance=new CubeRepositoryImpl();
-    private final List<Cube> cubeList=new ArrayList<>();
+    private static final CubeRepository repositoryInstance = new CubeRepositoryImpl();
+    private final List<Cube> cubeList = new ArrayList<>();
 
 
     private CubeRepositoryImpl() {
     }
 
-    public static CubeRepository getRepositoryInstance(){
+    public static CubeRepository getRepositoryInstance() {
         return repositoryInstance;
     }
 
@@ -47,7 +47,7 @@ public class CubeRepositoryImpl implements CubeRepository {
     @Override
     public boolean updateCube(int position, Cube cube) {
         if (position >= 0 && position < cubeList.size()) {
-            cubeList.add(position,new Cube(cube));
+            cubeList.add(position, new Cube(cube));
             return true;
         }
         return false;

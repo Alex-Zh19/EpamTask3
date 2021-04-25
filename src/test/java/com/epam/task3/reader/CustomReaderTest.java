@@ -20,21 +20,24 @@ public class CustomReaderTest {
 
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
         URL pathToFileUrl = classLoader.getResource(PATH_TO_FILE);
-        List<String> stringFormFileExpected=new ArrayList<>();
-        String str1="cube  :  name   :  (  43  ;  45  ,  56  ),  1122.12";
-        String str2="cube  : name :(43,45,65),12";
-        String str3="cube:name:(  43.44 ,45.444,65.444),12";
-        String str4="cube:name:(43,45,65);12";
-        String str5="cube:   name   :   (   -43 ;45,-56),    1122";
+        List<String> stringFormFileExpected = new ArrayList<>();
+        String str1 = "cube  :  name   :  (  43  ;  45  ,  56  ),  1122.12";
+        String str2 = "cube  : name :(43,45,65),12";
+        String str3 = "cube:name:(  43.44 ,45.444,65.444),12";
+        String str4 = "cube:name:(43,45,65);12";
+        String str5 = "cube:   name   :   (   -43 ;45,-56),    1122";
 
-        stringFormFileExpected.add(str1);stringFormFileExpected.add(str2);stringFormFileExpected.add(str3);
-        stringFormFileExpected.add(str4);stringFormFileExpected.add(str5);
+        stringFormFileExpected.add(str1);
+        stringFormFileExpected.add(str2);
+        stringFormFileExpected.add(str3);
+        stringFormFileExpected.add(str4);
+        stringFormFileExpected.add(str5);
 
         try {
             List<String> stringFromFileActual =
                     reader.readFile(new File(pathToFileUrl.getFile()).getAbsolutePath());
-            assertEquals(stringFromFileActual,stringFormFileExpected);
-        }catch (CubeException e){
+            assertEquals(stringFromFileActual, stringFormFileExpected);
+        } catch (CubeException e) {
 
         }
 
