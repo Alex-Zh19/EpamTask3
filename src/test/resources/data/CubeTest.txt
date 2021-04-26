@@ -1,0 +1,7 @@
+cube  :  name   :  (  43  ;  45  ,  56  ),  1122.12
+cube  : name :(43,45,65),12
+cube:name:(  43.44 ,45.444,65.444),12
+triangle:name:(4c3,45,65),12
+triangle:name2      :(4c3,45,65),12
+cube:name:(43,45,65);12
+cube:   name   :   (   -43 ;45,-56),    1122

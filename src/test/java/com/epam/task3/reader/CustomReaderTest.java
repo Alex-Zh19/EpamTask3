@@ -11,7 +11,7 @@ import java.util.List;
 import static org.testng.Assert.*;
 
 public class CustomReaderTest {
-    final static String PATH_TO_FILE = "data/Cube.txt";
+    final static String PATH_TO_FILE = "data/CubeTest.txt";
 
 
     @Test
