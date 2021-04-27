@@ -1,7 +1,14 @@
 package com.epam.task3.entity;
 
-public class CustomPoint {
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
+public class CustomPoint implements Cloneable {
     private double x, y, z;
+
+    private static final Logger logger = LogManager.getLogger();
 
     public CustomPoint() {
     }
@@ -69,5 +76,16 @@ public class CustomPoint {
         result.append(x).append(";")
                 .append(y).append(";").append(z).append(")");
         return result.toString();
+    }
+
+    @Override
+    public CustomPoint clone(){
+        CustomPoint newPoint = null;
+        try {
+            newPoint = (CustomPoint) super.clone();
+        } catch (CloneNotSupportedException exception) {
+            logger.log(Level.ERROR, "Clone is not supported", exception);
+        }
+        return newPoint;
     }
 }

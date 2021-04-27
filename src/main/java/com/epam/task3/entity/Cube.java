@@ -4,16 +4,21 @@ import com.epam.task3.exception.CubeException;
 import com.epam.task3.observer.CubeEvent;
 import com.epam.task3.observer.Observable;
 import com.epam.task3.observer.Observer;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cube implements Observable {
+public class Cube implements Observable,Cloneable {
     private String id;
     private String name;
     private double sideLength;
     private CustomPoint centerPoint;
     private List<Observer> observers = new ArrayList<>();
+
+    private static final Logger logger = LogManager.getLogger();
 
 
     public Cube(String id, String name, double sideLength, CustomPoint centerPoint) throws CubeException {
@@ -81,8 +86,8 @@ public class Cube implements Observable {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder("Cube{ id= ");
-        result.append(id).append("name= ").
-                append(name).append("sideLength= ").append(sideLength).
+        result.append(id).append(", name= ").
+                append(name).append(", sideLength= ").append(sideLength).
                 append(", centerPoint= ").append(centerPoint).append("}");
         return result.toString();
     }
@@ -107,5 +112,16 @@ public class Cube implements Observable {
                 observer.parameterChanged(cubeEvent);
             }
         }
+    }
+
+    @Override
+    public Cube clone() {
+        Cube newCube = null;
+        try {
+            newCube = (Cube) super.clone();
+        } catch (CloneNotSupportedException exception) {
+            logger.log(Level.ERROR, "Clone is not supported", exception);
+        }
+        return newCube;
     }
 }
