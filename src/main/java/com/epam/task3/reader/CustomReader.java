@@ -6,5 +6,4 @@ import java.util.List;
 
 public interface CustomReader {
      List<String>readFile(String fileName)throws CubeException;
-     void logToFile(String str);
 }

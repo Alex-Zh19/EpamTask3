@@ -11,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cube implements Observable,Cloneable {
+public class Cube implements Observable, Cloneable {
     private String id;
     private String name;
     private double sideLength;
@@ -66,14 +66,6 @@ public class Cube implements Observable,Cloneable {
         this.centerPoint = centerPoint;
         notifyObservers();
     }
-
-
-    public double calculateArea(){
-        double area=1.0;
-        //calculate area
-        return area;
-    }
-
 
     @Override
     public boolean equals(Object o) {

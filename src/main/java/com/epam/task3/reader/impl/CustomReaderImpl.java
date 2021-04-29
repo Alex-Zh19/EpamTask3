@@ -18,11 +18,6 @@ import java.util.stream.Stream;
 public class CustomReaderImpl implements CustomReader {
     final static Logger logger = LogManager.getLogger();
 
-    @Override
-    public void logToFile(String text){
-       //save to file
-    }
-
 
     @Override
     public List<String> readFile(String fileName) throws CubeException {
