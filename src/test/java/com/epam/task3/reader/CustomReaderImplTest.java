@@ -1,6 +1,7 @@
 package com.epam.task3.reader;
 
 import com.epam.task3.exception.CubeException;
+import com.epam.task3.reader.impl.CustomReaderImpl;
 import org.testng.annotations.Test;
 
 import java.io.File;
@@ -10,13 +11,13 @@ import java.util.List;
 
 import static org.testng.Assert.*;
 
-public class CustomReaderTest {
+public class CustomReaderImplTest {
     final static String PATH_TO_FILE = "data/CubeTest.txt";
 
 
     @Test
     public void testReadFile() {
-        CustomReader reader = new CustomReader();
+        CustomReaderImpl reader = new CustomReaderImpl();
 
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
         URL pathToFileUrl = classLoader.getResource(PATH_TO_FILE);

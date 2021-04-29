@@ -1,6 +1,7 @@
 package com.epam.task3.reader.impl;
 
 import com.epam.task3.exception.CubeException;
+import com.epam.task3.reader.CustomReader;
 import com.epam.task3.validator.CustomValidator;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -14,9 +15,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class CustomReader {
+public class CustomReaderImpl implements CustomReader {
     final static Logger logger = LogManager.getLogger();
 
+    @Override
+    public void logToFile(String text){
+       //save to file
+    }
+
+
+    @Override
     public List<String> readFile(String fileName) throws CubeException {
         if (fileName == null) {
             logger.log(Level.ERROR, "Filepath is null");

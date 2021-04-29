@@ -3,7 +3,7 @@ package com.epam.task3.repository.impl;
 import com.epam.task3.entity.Cube;
 import com.epam.task3.entity.CustomPoint;
 import com.epam.task3.exception.CubeException;
-import com.epam.task3.factory.CubeFactory;
+import com.epam.task3.factory.impl.CubeFactory;
 import com.epam.task3.repository.CubeRepository;
 import com.epam.task3.specification.CubeFindSpecification;
 import com.epam.task3.specification.impl.CubeFindSpecificationById;

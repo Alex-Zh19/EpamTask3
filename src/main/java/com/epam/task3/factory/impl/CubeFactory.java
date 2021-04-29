@@ -1,8 +1,9 @@
-package com.epam.task3.factory;
+package com.epam.task3.factory.impl;
 
 import com.epam.task3.entity.Cube;
 import com.epam.task3.entity.CustomPoint;
 import com.epam.task3.exception.CubeException;
+import com.epam.task3.factory.ShapeFactory;
 import com.epam.task3.util.IdGenerator;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -11,11 +12,12 @@ import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CubeFactory {
+public class CubeFactory implements ShapeFactory {
     private final static Logger logger = LogManager.getLogger();
     private final String CUBE_SHAPE = "cube";
     private final String ANY_OTHER_SHAPE = "shape";
 
+    @Override
     public Cube createShape(String type, String name, int sideLength, double x, double y, double z) throws CubeException {
         name = checkCubeParameters(type, name, sideLength);
         CustomPoint centerPoint = createPoint(x, y, z);
@@ -23,12 +25,14 @@ public class CubeFactory {
 
     }
 
+    @Override
     public Cube createShape(String type, String name, int sideLength, CustomPoint centerPoint) throws CubeException {
         name = checkCubeParameters(type, name, sideLength);
         return chooseShapeAndCreateIt(type, name, sideLength, centerPoint);
 
     }
 
+    @Override
     public List<Cube> createShape(List<String[]> typeAndName, List<double[]> parametersList) throws CubeException {
         List<Cube> shapeList = new ArrayList<>();
         if (typeAndName == null) {

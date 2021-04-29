@@ -3,7 +3,7 @@ package com.epam.task3.action.cube;
 import com.epam.task3.entity.Cube;
 import com.epam.task3.entity.CustomPoint;
 import com.epam.task3.exception.CubeException;
-import com.epam.task3.factory.CubeFactory;
+import com.epam.task3.factory.impl.CubeFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

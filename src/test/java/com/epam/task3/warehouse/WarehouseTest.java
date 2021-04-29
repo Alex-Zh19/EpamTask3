@@ -4,7 +4,7 @@ import com.epam.task3.action.cube.CubeCalculation;
 import com.epam.task3.entity.Cube;
 import com.epam.task3.exception.CubeException;
 import com.epam.task3.exception.WarehouseException;
-import com.epam.task3.factory.CubeFactory;
+import com.epam.task3.factory.impl.CubeFactory;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;

@@ -1,6 +1,7 @@
 package com.epam.task3.parser;
 
 import com.epam.task3.exception.CubeException;
+import com.epam.task3.parser.impl.CustomParserImpl;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -8,11 +9,11 @@ import java.util.List;
 
 import static org.testng.Assert.*;
 
-public class CustomParserTest {
+public class CustomParserImplTest {
 
     @Test
     public void testParseStringsToGetTypeAndNames() {
-        CustomParser parser = new CustomParser();
+        CustomParserImpl parser = new CustomParserImpl();
         List<String> list = new ArrayList<>();
         String str1 = " cube:   name   :   (43 ;45,  56),    1122    ";
         String str2 = " cube:   name1   :   (43 ;45,  -56),    11    ";
@@ -45,7 +46,7 @@ public class CustomParserTest {
 
     @Test
     public void testParseStringsToGetIntArray() {
-        CustomParser parser = new CustomParser();
+        CustomParserImpl parser = new CustomParserImpl();
         List<String> list = new ArrayList<>();
         String str1 = " cube:   name   :   (43 ;45,  56),    1122";
         String str2 = " cube:   name1   :   (43 ;45,  -56),    11";

@@ -67,6 +67,14 @@ public class Cube implements Observable,Cloneable {
         notifyObservers();
     }
 
+
+    public double calculateArea(){
+        double area=1.0;
+        //calculate area
+        return area;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
