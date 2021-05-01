@@ -10,6 +10,7 @@ public class CustomPoint implements Cloneable {
 
     private static final Logger logger = LogManager.getLogger();
 
+
     public CustomPoint() {
     }
 

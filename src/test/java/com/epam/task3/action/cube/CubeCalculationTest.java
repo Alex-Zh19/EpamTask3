@@ -69,4 +69,15 @@ public class CubeCalculationTest {
         String ratioActual = calculation.volumeRatio(cube);
         Assert.assertEquals(ratioActual, ratioExpected);
     }
+
+    @Test
+    public void testTestVolumeRatio()throws CubeException {
+        CustomPoint point = new CustomPoint(1, 9, 4);
+        CustomPoint centerPoint=new CustomPoint(4,4,4);
+        Cube cube = new Cube("cube1", "name", 6, centerPoint);
+        CubeCalculation calculation = new CubeCalculation();
+        double ratioExpected=1.0;
+        double ratioActual= calculation.volumeRatio(cube,point);
+        Assert.assertEquals(ratioActual,ratioExpected);
+    }
 }
