@@ -159,6 +159,45 @@ public class CubeCalculation {
         return result.toString();
     }
 
+    //this is dop methode maybe should be deleted
+    public double volumeRatio(Cube cube, CustomPoint planePoint) throws CubeException {
+        checkNotNull(cube);
+        CustomPointCalculation pointCalculation = new CustomPointCalculation();
+        CustomPoint centerPoint = cube.getCenterPoint();
+        double sideLength = cube.getSideLength();
+        List<CustomPoint> vertexPoints = pointCalculation.findAllVertexPoints(centerPoint, sideLength);
+
+        if (!vertexPoints.isEmpty()) {
+            CustomPoint firstDiagonalPoint = vertexPoints.get(0);
+            CustomPoint secondDiagonalPoint = vertexPoints.get(7);
+
+            int mark = findCoordinateDividesCube(planePoint, firstDiagonalPoint, secondDiagonalPoint);
+            double planeX = planePoint.getX();
+            double planeY = planePoint.getY();
+            double planeZ = planePoint.getZ();
+            switch (mark) {
+                case 0:
+                    return 1;
+                case 1:
+                    double volume1 = calculateSmallVolume(secondDiagonalPoint.getX() - planeX, sideLength, sideLength);
+                    double volume2 = calculateSmallVolume(planeX - firstDiagonalPoint.getX(), sideLength, sideLength);
+                    if (volume2 == 0.0) throw new CubeException("calculation Exception. wrong Parameters. ");
+                    return volume1 / volume2;
+                case 2:
+                    volume1 = calculateSmallVolume(sideLength, secondDiagonalPoint.getY() - planeY, sideLength);
+                    volume2 = calculateSmallVolume(sideLength, planeY - firstDiagonalPoint.getY(), sideLength);
+                    if (volume2 == 0.0) throw new CubeException("calculation Exception. wrong Parameters. ");
+                    return volume1 / volume2;
+                case 3:
+                    volume1 = calculateSmallVolume(sideLength, sideLength, secondDiagonalPoint.getZ() - planeZ);
+                    volume2 = calculateSmallVolume(sideLength, sideLength, planeZ - firstDiagonalPoint.getZ());
+                    if (volume2 == 0.0) throw new CubeException("calculation Exception. wrong Parameters. ");
+                    return volume1 / volume2;
+            }
+        }
+        throw new CubeException("Cube with such centerPoint doesn't exist. " + cube);
+    }
+
 
     private String findRatioTwoAxisXoZAndXoYCross(List<CustomPoint> vertexPoints, double sideLength) {
         CustomPoint currentPoint = vertexPoints.get(0);
@@ -264,44 +303,6 @@ public class CubeCalculation {
     }
 
 
-    //this is dop methode maybe should be deleted
-    public double volumeRatio(Cube cube, CustomPoint planePoint) throws CubeException {
-        checkNotNull(cube);
-        CustomPointCalculation pointCalculation = new CustomPointCalculation();
-        CustomPoint centerPoint = cube.getCenterPoint();
-        double sideLength = cube.getSideLength();
-        List<CustomPoint> vertexPoints = pointCalculation.findAllVertexPoints(centerPoint, sideLength);
-
-        if (!vertexPoints.isEmpty()) {
-            CustomPoint firstDiagonalPoint = vertexPoints.get(0);
-            CustomPoint secondDiagonalPoint = vertexPoints.get(7);
-
-            int mark = findCoordinateDividesCube(planePoint, firstDiagonalPoint, secondDiagonalPoint);
-            double planeX = planePoint.getX();
-            double planeY = planePoint.getY();
-            double planeZ = planePoint.getZ();
-            switch (mark) {
-                case 0:
-                    return 1;
-                case 1:
-                    double volume1 = calculateSmallVolume(secondDiagonalPoint.getX() - planeX, sideLength, sideLength);
-                    double volume2 = calculateSmallVolume(planeX - firstDiagonalPoint.getX(), sideLength, sideLength);
-                    if (volume2 == 0.0) throw new CubeException("calculation Exception. wrong Parameters. ");
-                    return volume1 / volume2;
-                case 2:
-                    volume1 = calculateSmallVolume(sideLength, secondDiagonalPoint.getY() - planeY, sideLength);
-                    volume2 = calculateSmallVolume(sideLength, planeY - firstDiagonalPoint.getY(), sideLength);
-                    if (volume2 == 0.0) throw new CubeException("calculation Exception. wrong Parameters. ");
-                    return volume1 / volume2;
-                case 3:
-                    volume1 = calculateSmallVolume(sideLength, sideLength, secondDiagonalPoint.getZ() - planeZ);
-                    volume2 = calculateSmallVolume(sideLength, sideLength, planeZ - firstDiagonalPoint.getZ());
-                    if (volume2 == 0.0) throw new CubeException("calculation Exception. wrong Parameters. ");
-                    return volume1 / volume2;
-            }
-        }
-        throw new CubeException("Cube with such centerPoint doesn't exist. " + cube);
-    }
 
     //1-X,2-Y,3-Z,0-isn't divided
     private int findCoordinateDividesCube(CustomPoint point, CustomPoint diagonalPoint1, CustomPoint diagonalPoint2) {
