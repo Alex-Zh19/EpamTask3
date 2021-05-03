@@ -34,8 +34,8 @@ public class CubeRepositoryImplTest {
         }
 
         Comparator<Cube> sort = new CubeSortSpecificationById();
-
-        assertTrue(isIdSortingWorks(repository.sort(sort)));
+        boolean mark=isIdSortingWorks(repository.sort(sort));
+        assertTrue(mark);
     }
 
 
@@ -49,9 +49,9 @@ public class CubeRepositoryImplTest {
             repository.addCube(newCube);
 
         }
-
         Comparator<Cube> sort = new CubeSortSpecificationByName();
-        assertTrue(isNameSortingWorks(repository.sort(sort)));
+        boolean mark=isNameSortingWorks(repository.sort(sort));
+        assertTrue(mark);
     }
 
     @Test
@@ -69,7 +69,8 @@ public class CubeRepositoryImplTest {
         repository.addCube(newCube5);
 
         Comparator<Cube> sort = new CubeSortSpecificationByIdAndName();
-        assertTrue(isIdAndNameSortWorks(repository.sort(sort)));
+        boolean mark=isIdAndNameSortWorks(repository.sort(sort));
+        assertTrue(mark);
     }
 
 

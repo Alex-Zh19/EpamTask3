@@ -41,3 +41,23 @@ java.lang.CloneNotSupportedException: com.epam.task3.entity.CustomPoint
 	at org.testng.TestNG.run(TestNG.java:1031) [testng-6.8.jar:?]
 	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66) [testng-rt.jar:?]
 	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109) [testng-rt.jar:?]
+2021-05-03 23:33:19 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 
+2021-05-03 23:33:19 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 
+2021-05-03 23:33:19 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 
+2021-05-03 23:33:19 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 
+2021-05-03 23:33:19 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 
+2021-05-03 23:33:19 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 
+2021-05-03 23:33:19 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 
+2021-05-03 23:33:19 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 
+2021-05-03 23:33:19 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 
+2021-05-03 23:33:19 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 
+2021-05-03 23:35:24 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 
+2021-05-03 23:35:24 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 
+2021-05-03 23:35:24 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 
+2021-05-03 23:35:24 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 
+2021-05-03 23:35:24 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 
+2021-05-03 23:35:24 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 
+2021-05-03 23:35:24 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 
+2021-05-03 23:35:24 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 
+2021-05-03 23:35:24 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 
+2021-05-03 23:35:24 [main] ERROR com.epam.task3.factory.impl.CubeFactory - wrong data input. can't define type of shape : type 

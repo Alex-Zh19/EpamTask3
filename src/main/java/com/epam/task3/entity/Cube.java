@@ -20,7 +20,6 @@ public class Cube implements Observable, Cloneable {
 
     private static final Logger logger = LogManager.getLogger();
 
-
     public Cube(String id, String name, double sideLength, CustomPoint centerPoint) throws CubeException {
         if (sideLength <= 0) {
             throw new CubeException("wrong data input. side length cannot be less than 0 :" + sideLength);
